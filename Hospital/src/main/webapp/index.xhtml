@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>SUCH ­ Sistema Unificado de Controle Hospitalar</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/bootstrap-select.css" rel="stylesheet"/>
+        <link href="css/datepicker3.css" rel="stylesheet"/>
+        <link href="css/estilo.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="principal">
+            <div class="lateral">
+                <div class="logo"></div>
+                <div class="menu">
+                    <dl>
+                        <dt>AGENDAMENTO</dt>
+                        <dd id="menu-instituicoes"><a href="#">Por data</a></dd>
+                        <dd id="menu-disciplina"><a href="#">Por hora</a></dd>
+                        <dd id="menu-disciplina"><a href="#">Obter agendamento</a></dd>
+                        <dt>ATENDIMENTO</dt>
+                        <dd id="menu-areas"><a href="#">Por data</a></dd>
+                        <dd id="menu-subareas"><a href="#">Por hora</a></dd>
+                        <dd id="menu-assuntos"><a href="#">Por paciente</a></dd>
+                        <dt>CADASTRO</dt>
+                        <dd id="menu-questoes"><a href="#">Agendamento</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Atendente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Médico</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Paciente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Plano de saúde</a></dd>
+                        <dt>LISTAR</dt>
+                        <dd id="menu-questoes"><a href="#">Atendentes</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Médicos</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Pacientes</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Planos de saúde</a></dd>
+                        <dt>PESQUISA</dt>
+                        <dd id="menu-questoes"><a href="#">Agendamento</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Atendente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Médico</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Paciente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Plano de saúde</a></dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="fundo-cinza-principal">
+                <header>
+                    <div class="logo-expoente"></div>
+                    <div class="titulo-menu">QUESTÕES</div>
+                </header>
+                <div class="conteudo">
+                    <form role="form">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="disciplina">Disciplina</label><br />
+                                <select class="selectpicker" id="disciplina">
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">	
+                                <label for="conteudo">Conteúdo</label><br />
+                                <select class="selectpicker" id="conteudo">
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="topico">Tópico</label><br />
+                                <select class="selectpicker" id="topico">
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="autor">Autor</label>
+                                <input type="text" class="form-control" id="autor"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Lista de alternativas</label><br />
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-sm btn-azul right">Salvar</button>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Row</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>John</td>
+                                            <td>Carter</td>
+                                            <td>johncarter@mail.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Peter</td>
+                                            <td>Parker</td>
+                                            <td>peterparker@mail.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>John</td>
+                                            <td>Rambo</td>
+                                            <td>johnrambo@mail.com</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="sandbox-container" class="span5 col-md-3 calendario-datepicker">
+                                    <div class="input-group date ">
+                                        <input class="form-control " type="text" />
+                                        <span class="input-group-addon">
+                                            <img alt="" src="img/icone-calendario.png" />
+                                        </span>
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <br />
+                                <a href="#" class="btn btn-sm btn-azul" data-toggle="modal" data-target="#basicModal">Teste Modal</a>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="nav nav-tabs" role="tablist" id="menu-abas">
+                                    <li role="presentation" class="active"><a href="#">Cadastrar prova</a></li>
+                                    <li role="presentation"><a href="#">Gerar prova</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="list-group">
+                                    <li class="list-group-item"><input type="checkbox"/>Cras justo odio</li>
+                                    <li class="list-group-item"><input type="checkbox"/>Dapibus ac facilisis in</li>
+                                    <li class="list-group-item"><input type="checkbox"/>Morbi leo risus</li>
+                                    <li class="list-group-item"><input type="checkbox"/>Porta ac consectetur ac</li>
+                                    <li class="list-group-item"><input type="checkbox"/>Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="accordion" class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. What is HTML?</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. What is Twitter Bootstrap?</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse in">
+                                            <div class="panel-body">
+                                                <p>Twitter Bootstrap is a powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. What is CSS?</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="http://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-select.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/bootstrap-datepicker.pt-BR.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

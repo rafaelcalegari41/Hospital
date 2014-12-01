@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>SUCH - Sistema Unificado de Controle Hospitalar</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/bootstrap-select.css" rel="stylesheet"/>
+        <link href="css/datepicker3.css" rel="stylesheet"/>
+        <link href="css/estilo.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="principal">
+            <div class="lateral">
+                <div class="logo"></div>
+                <div class="menu">
+                    <dl>
+                        <dt>AGENDAMENTO</dt>
+                        <dd id="menu-instituicoes"><a href="#">Por data</a></dd>
+                        <dd id="menu-disciplina"><a href="#">Por hora</a></dd>
+                        <dd id="menu-disciplina"><a href="#">Obter agendamento</a></dd>
+                        <dt>ATENDIMENTO</dt>
+                        <dd id="menu-areas"><a href="#">Por data</a></dd>
+                        <dd id="menu-subareas"><a href="#">Por hora</a></dd>
+                        <dd id="menu-assuntos"><a href="#">Por paciente</a></dd>
+                        <dt>CADASTRO</dt>
+                        <dd id="menu-questoes"><a href="#">Agendamento</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Atendente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Médico</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Paciente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Plano de saúde</a></dd>
+                        <dt>LISTAR</dt>
+                        <dd id="menu-questoes"><a href="#">Atendentes</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Médicos</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Pacientes</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Planos de saúde</a></dd>
+                        <dt>PESQUISA</dt>
+                        <dd id="menu-questoes"><a href="#">Agendamento</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Atendente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Médico</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Paciente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Plano de saúde</a></dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="fundo-cinza-principal">
+                <header>
+                    <div class="logo-expoente"></div>
+                    <div class="titulo-menu">LISTAR PLANOS DE SAÚDE</div>
+                </header>
+                <div class="conteudo">
+                    <form role="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="autor">Plano de Saúde</label>
+                                <input type="text" class="form-control" id="autor"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-sm btn-azul right">Pesquisar</button>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>CNPJ</th>
+                                            <th>Editar</th>
+                                            <th>Excluir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>John Carter</td>
+                                            <td>047.077.469-00</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <br />
+                    </form>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-select.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/bootstrap-datepicker.pt-BR.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
