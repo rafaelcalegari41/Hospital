@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="hospital" match-name="agendamento"/>
+  <table-filter match-catalog="hospital" match-name="atendente"/>
+  <table-filter match-catalog="hospital" match-name="especialidade"/>
+  <table-filter match-catalog="hospital" match-name="estado_paciente"/>
+  <table-filter match-catalog="hospital" match-name="medico"/>
+  <table-filter match-catalog="hospital" match-name="municipio"/>
+  <table-filter match-catalog="hospital" match-name="paciente"/>
+  <table-filter match-catalog="hospital" match-name="pessoa"/>
+  <table-filter match-catalog="hospital" match-name="plano_de_saude"/>
+  <table-filter match-catalog="hospital" match-name="situacao"/>
+  <table-filter match-catalog="hospital" match-name="tipo_acesso"/>
+  <table-filter match-catalog="hospital" match-name="tipo_plano_saude"/>
+  <table-filter match-catalog="hospital" match-name="unidade_federativa"/>
+  <table-filter match-catalog="hospital" match-name="usuario"/>
+</hibernate-reverse-engineering>
