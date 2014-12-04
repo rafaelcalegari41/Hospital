@@ -11,7 +11,7 @@ import org.hibernate.Transaction;
 
 import br.com.hospital.util.HibernateUtil;
 
-public class GenericDAO<PK, T> {
+public class GenericDAO<T, PK> {
 
 	private SessionFactory sessionFactory;
 	private Session session;

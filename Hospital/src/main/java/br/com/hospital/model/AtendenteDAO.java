@@ -4,5 +4,7 @@ import br.com.hospital.pojo.Atendente;
 
 public class AtendenteDAO extends GenericDAO<Atendente, Long> {
 
-	
+	public AtendenteDAO(){
+		super();
+	}
 }
