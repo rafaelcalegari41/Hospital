@@ -11,32 +11,11 @@ import org.hibernate.Transaction;
 
 import br.com.hospital.util.HibernateUtil;
 
-public class GenericDAO<T, PK> {
+public class GenericDAO<T, ID extends Serializable> {
 
-	private SessionFactory sessionFactory;
+	private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 	private Session session;
-	private Class<?> clazz;
-
-	public GenericDAO() {
-		this.sessionFactory = HibernateUtil.getSessionFactory();
-		this.session = sessionFactory.openSession();
-	}
-
-	public T getById(PK pk) {
-		session = sessionFactory.openSession();
-		Transaction transaction = session.beginTransaction();
-		try {
-			session.load(clazz, (Serializable) pk);
-			session.flush();
-			transaction.commit();
-		} catch (Exception erro) {
-			transaction.rollback();
-		} finally {
-			session.close();
-		}
-
-		return (T) clazz;
-	}
+	private Class<?> object = getObject();
 
 	public void save(T entity) {
 		session = sessionFactory.openSession();
@@ -52,7 +31,7 @@ public class GenericDAO<T, PK> {
 		}
 	}
 
-	public void update(T entity) {
+	public void update(T entity) {	
 		session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -66,7 +45,7 @@ public class GenericDAO<T, PK> {
 		}
 	}
 
-	public void delete(T entity) {
+	public void delete(T entity) {	
 		session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -79,27 +58,46 @@ public class GenericDAO<T, PK> {
 			session.close();
 		}
 	}
-
-	public List<T> findAll() {
-		List<?> list = null;
+	
+	@SuppressWarnings("unchecked")
+	public T findById(ID id) {
+		T instance = null;	
 		session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			Query query = session.createQuery("from " + clazz.getName());
-			list = query.list();
+			instance = (T) session.load(object, id);			
+			session.flush();
 			transaction.commit();
 		} catch (Exception erro) {
 			transaction.rollback();
 		} finally {
 			session.close();
 		}
+
+		return instance;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<T> findAll() {
+		List<?> list = null;	
+		session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			Query query = session.createQuery("from " + object.getName());
+			list = query.list();
+			transaction.commit();
+		} catch (Exception erro) {
+			transaction.rollback();
+		} finally {			
+			session.close();
+		}
 		
 		return (List<T>) list;
 	}
 
-	private Class<?> getTypeClass() {
-		clazz = (Class<?>) ((ParameterizedType) this.getClass()
-				.getGenericSuperclass()).getActualTypeArguments()[1];
-		return clazz;
+	private Class<?> getObject() {
+		object = (Class<?>) ((ParameterizedType) this.getClass()
+				.getGenericSuperclass()).getActualTypeArguments()[0];
+		return object;
 	}
 }

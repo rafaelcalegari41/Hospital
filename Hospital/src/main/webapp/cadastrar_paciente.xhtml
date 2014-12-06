@@ -1,168 +1,234 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
-    <head>
-        <title>SUCH ­ Sistema Unificado de Controle Hospitalar</title>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<title>SUCH ­ Sistema Unificado de Controle Hospitalar</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link href="css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="css/bootstrap-select.css" rel="stylesheet"/>
-        <link href="css/datepicker3.css" rel="stylesheet"/>
-        <link href="css/estilo.css" rel="stylesheet"/>
-    </head>
-    <body>
-        <div class="principal">
-            <div class="lateral">
-                <div class="logo"></div>
-                <div class="menu">
-                    <dl>
-                        <dt>AGENDAMENTO</dt>
-                        <dd id="menu-instituicoes"><a href="#">Por data</a></dd>
-                        <dd id="menu-disciplina"><a href="#">Por hora</a></dd>
-                        <dd id="menu-disciplina"><a href="#">Obter agendamento</a></dd>
-                        <dt>ATENDIMENTO</dt>
-                        <dd id="menu-areas"><a href="#">Por data</a></dd>
-                        <dd id="menu-subareas"><a href="#">Por hora</a></dd>
-                        <dd id="menu-assuntos"><a href="#">Por paciente</a></dd>
-                        <dt>CADASTRO</dt>
-                        <dd id="menu-questoes"><a href="#">Agendamento</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Atendente</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Médico</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Paciente</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Plano de saúde</a></dd>
-                        <dt>LISTAR</dt>
-                        <dd id="menu-questoes"><a href="#">Atendentes</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Médicos</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Pacientes</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Planos de saúde</a></dd>
-                        <dt>PESQUISA</dt>
-                        <dd id="menu-questoes"><a href="#">Agendamento</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Atendente</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Médico</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Paciente</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Plano de saúde</a></dd>
-                    </dl>
-                </div>
-            </div>
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/bootstrap-select.css" rel="stylesheet" />
+<link href="css/datepicker3.css" rel="stylesheet" />
+<link href="css/estilo.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="principal">
+		<div class="lateral">
+			<div class="logo"></div>
+			<div class="menu">
+				<dl>
+					<dt>AGENDAMENTO</dt>
+					<dd id="menu-instituicoes">
+						<a href="#">Por data</a>
+					</dd>
+					<dd id="menu-disciplina">
+						<a href="#">Por hora</a>
+					</dd>
+					<dd id="menu-disciplina">
+						<a href="#">Obter agendamento</a>
+					</dd>
+					<dt>ATENDIMENTO</dt>
+					<dd id="menu-areas">
+						<a href="#">Por data</a>
+					</dd>
+					<dd id="menu-subareas">
+						<a href="#">Por hora</a>
+					</dd>
+					<dd id="menu-assuntos">
+						<a href="#">Por paciente</a>
+					</dd>
+					<dt>CADASTRO</dt>
+					<dd id="menu-questoes">
+						<a href="#">Agendamento</a>
+					</dd>
+					<dd id="menu-avaliacoes">
+						<a href="#">Atendente</a>
+					</dd>
+					<dd id="menu-avaliacoes">
+						<a href="#">Médico</a>
+					</dd>
+					<dd id="menu-avaliacoes">
+						<a href="#">Paciente</a>
+					</dd>
+					<dd id="menu-avaliacoes">
+						<a href="#">Plano de saúde</a>
+					</dd>
+					<dt>LISTAR</dt>
+					<dd id="menu-questoes">
+						<a href="#">Atendentes</a>
+					</dd>
+					<dd id="menu-avaliacoes">
+						<a href="#">Médicos</a>
+					</dd>
+					<dd id="menu-avaliacoes">
+						<a href="#">Pacientes</a>
+					</dd>
+					<dd id="menu-avaliacoes">
+						<a href="#">Planos de saúde</a>
+					</dd>
+					<dt>PESQUISA</dt>
+					<dd id="menu-questoes">
+						<a href="#">Agendamento</a>
+					</dd>
+					<dd id="menu-avaliacoes">
+						<a href="#">Atendente</a>
+					</dd>
+					<dd id="menu-avaliacoes">
+						<a href="#">Médico</a>
+					</dd>
+					<dd id="menu-avaliacoes">
+						<a href="#">Paciente</a>
+					</dd>
+					<dd id="menu-avaliacoes">
+						<a href="#">Plano de saúde</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
 
-            <div class="fundo-cinza-principal">
-                <header>
-                    <div class="logo-expoente"></div>
-                    <div class="titulo-menu">CADASTRAR PACIENTE</div>
-                </header>
-                <div class="conteudo">
-                    <form role="form">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome" required = 'true'/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="cnpj">CPF</label>
-                                <input type="text" class="form-control" id="cpf" required = 'true'/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <label for="logradouro">Logradouro</label>
-                                <input type="text" class="form-control" id="logradouro" required = 'true'/>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="numero">Número</label>
-                                <input type="text" class="form-control" id="numero" required = 'true'/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <label for="bairro">Bairro</label>
-                                <input type="text" class="form-control" id="bairo" required = 'true'/>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="cep">CEP</label>
-                                <input type="text" class="form-control" id="cep" required = 'true'/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="uf">UF</label>
-                                <select class="selectpicker" id="uf">
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="cidade">Cidade</label>
-                                <select class="selectpicker" id="cidade">
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="tel_fixo">Telefone Fixo</label>
-                                <input type="text" class="form-control" id="tel_fixo" required = 'true'/>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="tel_celular">Telefone Celular</label>
-                                <input type="text" class="form-control" id="tel_celuluar" />
-                            </div>
-                        </div>
+		<div class="fundo-cinza-principal">
+			<header>
+			<div class="logo-expoente"></div>
+			<div class="titulo-menu">CADASTRAR PACIENTE</div>
+			</header>
+			<div class="conteudo">
+				<h:form role="form">
+					<div class="row">
+						<div class="col-md-12">
+							<label for="nome">Nome</label>
+							<h:inputText value="#{pacienteMB.pessoa.pessNmNome}"
+								styleClass="form-control" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<label for="cnpj">CPF</label>
+							<h:inputText value="#{pacienteMB.pessoa.pessNrCpf}"
+								styleClass="form-control" required="true"
+								requiredMessage="Campo CPF obrigatório" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<label for="logradouro">Logradouro</label>
+							<h:inputText value="#{pacienteMB.pessoa.pessTxLogradouro}"
+								styleClass="form-control" required="true"
+								requiredMessage="Campo logradouro obrigatório" />
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="email">E-mail</label><br />
-                                <input type="email" class="form-control" id="email" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="email">Número do Plano de Saúde</label><br />
-                                <input type="email" class="form-control" id="numero_plano" />
-                            </div>
-                            <div class="col-md-4">
-                                <label for="nome_plano">Plano de Saúde</label>
-                                <select class="selectpicker" id="nome_plano">
-                                    <option>Clinipam</option>
-                                    <option>Unimed</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="tipo_plano">Tipo do Plano de Saúde</label>
-                                <select class="selectpicker" id="tipo_plano">
-                                    <option>Enfermaria</option>
-                                    <option>Apartamento</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="data_cadastro">Data do Cadastro</label>
-                                <input type="text" class="form-control" id="data_cadastro"/>
-                            </div> 
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-sm btn-azul right">Salvar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div style="clear: both"></div>
-            </div>
-        </div>
+						</div>
+						<div class="col-md-4">
+							<label for="numero">Número</label>
+							<h:inputText value="#{pacienteMB.pessoa.pessNrNumero}"
+								styleClass="form-control" required="true"
+								requiredMessage="Campo número obrigatório" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<label for="bairro">Bairro</label>
+							<h:inputText value="#{pacienteMB.pessoa.pessTxBairro}"
+								styleClass="form-control" required="true"
+								requiredMessage="Campo bairro obrigatório" />
+						</div>
+						<div class="col-md-4">
+							<label for="cep">CEP</label>
+							<h:inputText value="#{pacienteMB.pessoa.pessTxCep}"
+								styleClass="form-control" required="true"
+								requiredMessage="Campo CEP obrigatório" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label for="uf">UF</label> <select class="selectpicker" id="uf">
+								<option>Mustard</option>
+								<option>Ketchup</option>
+								<option>Relish</option>
+							</select>
+						</div>
+						<div class="col-md-4">
+							<label for="cidade">Cidade</label> <select class="selectpicker"
+								id="cidade">
+								<option>Mustard</option>
+								<option>Ketchup</option>
+								<option>Relish</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label for="tel_fixo">Telefone Fixo</label>
+							<h:inputText value="#{pacienteMB.pessoa.pessNrTelefone}"
+								styleClass="form-control" required="true"
+								requiredMessage="Campo fone fixo obrigatório" />
+						</div>
+						<div class="col-md-4">
+							<label for="tel_celular">Telefone Celular</label>
+							<h:inputText value="#{pacienteMB.pessoa.pessNrCelular}"
+								styleClass="form-control" required="true"
+								requiredMessage="Campo fone celular obrigatório" />
+						</div>
+					</div>
 
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap-select.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/bootstrap-datepicker.pt-BR.js"></script>
-        <script src="js/script.js"></script>
-    </body>
+					<div class="row">
+						<div class="col-md-12">
+							<label for="email">E-mail</label><br />
+							<h:inputText value="#{pacienteMB.pessoa.pessTxEmail}"
+								styleClass="form-control" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label for="email">Número do Plano de Saúde</label><br />
+							<h:inputText value="#{pacienteMB.paciente.paciIdPlanoSaude}"
+								styleClass="form-control" />
+						</div>
+						<div class="col-md-4">
+							<label for="nome_plano">Plano de Saúde</label> <select
+								class="selectpicker" id="nome_plano">
+								<option>Clinipam</option>
+								<option>Unimed</option>
+							</select>
+						</div>
+						<div class="col-md-4">
+							<label for="tipo_plano">Tipo do Plano de Saúde</label> <select
+								class="selectpicker" id="tipo_plano">
+								<option>Enfermaria</option>
+								<option>Apartamento</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label for="data_cadastro">Data do Cadastro</label>
+							<div class="input-append date" id="datepicker"
+								data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+								<h:inputText value="#{pacienteMB.paciente.paciDtCadastro}"
+									styleClass="form-control" />
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<h:commandButton value="Salvar" action="#{pacienteMB.salvar}"
+								styleClass="btn btn-sm btn-azul right">
+							</h:commandButton>
+
+						</div>
+					</div>
+				</h:form>
+			</div>
+			<div style="clear: both"></div>
+		</div>
+	</div>
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-select.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/bootstrap-datepicker.pt-BR.js"></script>
+	<script src="js/script.js"></script>
+</body>
 </html>

@@ -138,10 +138,10 @@ textarea {
 .btn-azul {
 	font-size: 13px !important;
 	color: #fff !important;
-	background-color: #42afdd;
+	background-color: #42afdd !important;
 }
 .btn-azul:hover {
-	background-color: #707070;
+	background-color: #707070 !important;
 }
 
 .btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {

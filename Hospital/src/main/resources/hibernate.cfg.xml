@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">nando</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/hospital</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <property name="connection.pool_size">1</property>
+        <property name="current_session_context_class">thread</property>    
+        <property name="hibernate.enable_lazy_load_no_trans">true</property> 
+        
+         <mapping class="br.com.hospital.pojo.Agendamento"></mapping>
+         <mapping class="br.com.hospital.pojo.Atendente"></mapping>
+         <mapping class="br.com.hospital.pojo.Especialidade"></mapping>
+         <mapping class="br.com.hospital.pojo.EstadoPaciente"></mapping>
+         <mapping class="br.com.hospital.pojo.Medico"></mapping>
+         <mapping class="br.com.hospital.pojo.Municipio"></mapping>
+         <mapping class="br.com.hospital.pojo.Paciente"></mapping>
+         <mapping class="br.com.hospital.pojo.Pessoa"></mapping>
+         <mapping class="br.com.hospital.pojo.PlanoDeSaude"></mapping>
+         <mapping class="br.com.hospital.pojo.Situacao"></mapping>
+         <mapping class="br.com.hospital.pojo.TipoAcesso"></mapping>
+         <mapping class="br.com.hospital.pojo.TipoPlanoSaude"></mapping>
+         <mapping class="br.com.hospital.pojo.UnidadeFederativa"></mapping>
+         <mapping class="br.com.hospital.pojo.Usuario"></mapping>
+        
+    </session-factory>
+    
+    
+    
+</hibernate-configuration>

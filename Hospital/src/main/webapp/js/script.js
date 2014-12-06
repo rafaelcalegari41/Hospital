@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	$('.selectpicker').selectpicker();
 
-	$('#sandbox-container .input-group.date').datepicker({
+	$('#datepicker').datepicker({
 		format: "dd/mm/yyyy",
 		todayBtn: "linked",
 		language: "pt-BR",
