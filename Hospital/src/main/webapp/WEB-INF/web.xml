@@ -23,7 +23,7 @@
   </servlet>
 	
   <welcome-file-list>
-		<welcome-file>cadastrar_agendamento.xhtml</welcome-file>
+		<welcome-file>cadastrar_atendente.xhtml</welcome-file>
 	</welcome-file-list>
 	
 	<servlet-mapping>
