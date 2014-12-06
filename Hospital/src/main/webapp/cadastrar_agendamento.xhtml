@@ -2,61 +2,132 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
-	<head>
-		<title>Manter Agendamento</title>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	</head>
-	<body>
-		<h2>Manter Agendamento</h2>
-		<table>
-			<tr>
-				<td>Cliente: </td>
-				<td><input type="text"/></td>	
-			</tr>
-			<tr>
-				<td>CPF: </td>
-				<td><input type="text"/></td>
-				<td><input type="button" name="pesquisar" value="Pesquisar"/></td>
-			</tr>
-			<tr>
-				<td>Anamnese: </td>
-				<td><input type="text"/></td>	
-			</tr>
-			<tr>
-				<td>Estado do Paciente: </td>
-				<td>
-					<select>
-						<option value="volvo">Est�vel</option>
-						<option value="saab">Inst�vel</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>Data/Hora do Agendamento: </td>
-				<td><input type="text"/></td>	
-			</tr>
-			<tr>
-				<td>Atendente: </td>
-				<td><input type="text"/></td>	
-			</tr>
-			<tr>
-				<td>Situa��o: </td>
-				<td>
-					<select>
-						<option value="volvo">Em espera</option>
-						<option value="saab">Atendido</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>M�dico: </td>
-				<td><input type="text"/></td>	
-			</tr>
-			<tr>
-				<td><input type="button" name="Voltar" value="Voltar"/></td>
-				<td><input type="button" name="Salvar" value="Salvar"/></td>
-			</tr>
-		</table>
-	</body>
+    <head>
+        <title>SUCH ­ Sistema Unificado de Controle Hospitalar</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/bootstrap-select.css" rel="stylesheet"/>
+        <link href="css/datepicker3.css" rel="stylesheet"/>
+        <link href="css/estilo.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="principal">
+            <div class="lateral">
+                <div class="logo"></div>
+                <div class="menu">
+                    <dl>
+                        <dt>AGENDAMENTO</dt>
+                        <dd id="menu-instituicoes"><a href="#">Por data</a></dd>
+                        <dd id="menu-disciplina"><a href="#">Por hora</a></dd>
+                        <dd id="menu-disciplina"><a href="#">Obter agendamento</a></dd>
+                        <dt>ATENDIMENTO</dt>
+                        <dd id="menu-areas"><a href="#">Por data</a></dd>
+                        <dd id="menu-subareas"><a href="#">Por hora</a></dd>
+                        <dd id="menu-assuntos"><a href="#">Por paciente</a></dd>
+                        <dt>CADASTRO</dt>
+                        <dd id="menu-questoes"><a href="#">Agendamento</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Atendente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Médico</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Paciente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Plano de saúde</a></dd>
+                        <dt>LISTAR</dt>
+                        <dd id="menu-questoes"><a href="#">Atendentes</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Médicos</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Pacientes</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Planos de saúde</a></dd>
+                        <dt>PESQUISA</dt>
+                        <dd id="menu-questoes"><a href="#">Agendamento</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Atendente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Médico</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Paciente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="#">Plano de saúde</a></dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="fundo-cinza-principal">
+                <header>
+                    <div class="logo-expoente"></div>
+                    <div class="titulo-menu">CADASTRAR AGENDAMENTO</div>
+                </header>
+                <div class="conteudo">
+                    <form role="form">
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label for="nome">Nome</label>
+                                <input type="text" class="form-control" id="nome" required = 'true'/>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="cnpj">CPF</label>
+                                <input type="text" class="form-control" id="cpf" required = 'true'/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Anamnese</label><br />
+                                <textarea class="form-control" rows="5" id="Anamnese"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="estado_paciente">Estado do Paciente</label>
+                                <select class="selectpicker" id="estado_paciente">
+                                    <option>Estável</option>
+                                    <option>Instável</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="situacao">Situação</label>
+                                <select class="selectpicker" id="situacao">
+                                    <option>Atendido</option>
+                                    <option>Em espera</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="bairro">Data/Hora do Atendimento</label>
+                                <input type="text" class="form-control" id="data_atendimento" required = 'true'/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="situacao">Médico</label>
+                                <select class="selectpicker" id="medico">
+                                    <option>Fulano</option>
+                                    <option>Ciclano</option>
+                                </select>
+                            </div>
+                            <div class="col-md-8">
+                                <label for="medico">Atendente</label>
+                                <input type="text" class="form-control" id="atendente"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="bairro">Data/Hora do Atendimento</label>
+                                <input type="text" class="form-control" id="data_atendimento" required = 'true'/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-sm btn-azul right">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-select.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/bootstrap-datepicker.pt-BR.js"></script>
+        <script src="js/script.js"></script>
+    </body>
 </html>
