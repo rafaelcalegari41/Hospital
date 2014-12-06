@@ -23,7 +23,7 @@
   </servlet>
 	
   <welcome-file-list>
-		<welcome-file>cadastrar_medico.xhtml</welcome-file>
+		<welcome-file>cadastrar_paciente.xhtml</welcome-file>
 	</welcome-file-list>
 	
 	<servlet-mapping>
