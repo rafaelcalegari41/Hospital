@@ -1,18 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
-<head>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
 <title>SUCH ­ Sistema Unificado de Controle Hospitalar</title>
-<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 <link href="css/bootstrap-select.css" rel="stylesheet" />
 <link href="css/datepicker3.css" rel="stylesheet" />
 <link href="css/estilo.css" rel="stylesheet" />
-</head>
-<body>
+</h:head>
+<h:body>
 	<div class="principal">
 		<div class="lateral">
 			<div class="logo"></div>
@@ -140,19 +141,22 @@
 					</div>
 					<div class="row">
 						<div class="col-md-4">
-							<label for="uf">UF</label> <select class="selectpicker" id="uf">
-								<option>Mustard</option>
-								<option>Ketchup</option>
-								<option>Relish</option>
-							</select>
+							<label for="uf">UF</label> 
+							 <h:selectOneMenu id="siglauf" required="true"
+		                        value="#{pacienteMB.unidadeFederativa.unfeIdUnidade}" styleClass="selectpicker">
+		                        <f:selectItems value="#{pacienteMB.comboUf}"
+		                           itemValue="#{pacienteMB.unidadeFederativa.unfeIdUnidade}"/>
+		                        <f:ajax execute="@this" event="change" render="cidade"
+		                           listener="#{pacienteMB.listarCidade}"/>                       
+		                     </h:selectOneMenu>
 						</div>
 						<div class="col-md-4">
-							<label for="cidade">Cidade</label> <select class="selectpicker"
-								id="cidade">
-								<option>Mustard</option>
-								<option>Ketchup</option>
-								<option>Relish</option>
-							</select>
+							<label for="cidade">Cidade</label> 
+							  <h:selectOneMenu id="cidade" styleClass="selectpicker"
+		                         value="#{pacienteMB.municipio.muniIdMunicipio}">
+		                         <f:selectItems value="#{pacienteMB.comboMunicipio}"
+		                            itemValue="#{pacienteMB.municipio.muniIdMunicipio}" />
+		                      </h:selectOneMenu>
 						</div>
 					</div>
 					<div class="row">
@@ -184,18 +188,19 @@
 								styleClass="form-control" />
 						</div>
 						<div class="col-md-4">
-							<label for="nome_plano">Plano de Saúde</label> <select
-								class="selectpicker" id="nome_plano">
-								<option>Clinipam</option>
-								<option>Unimed</option>
-							</select>
+							<label for="nome_plano">Plano de Saúde</label> 
+							<h:selectOneMenu value="#{pacienteMB.idPlanoSaude}" styleClass="selectpicker">
+								<f:selectItem itemValue="0" itemLabel="Selecione" />
+							   <f:selectItem itemValue="1" itemLabel="Clinipam" />
+							   <f:selectItem itemValue="2" itemLabel="Unimed" />	   							
+							</h:selectOneMenu>	
 						</div>
 						<div class="col-md-4">
-							<label for="tipo_plano">Tipo do Plano de Saúde</label> <select
-								class="selectpicker" id="tipo_plano">
-								<option>Enfermaria</option>
-								<option>Apartamento</option>
-							</select>
+							<label for="tipo_plano">Tipo do Plano de Saúde</label> 
+							<h:selectOneMenu value="#{pacienteMB.tipoPlanoSaude.tipsIdTipo}" styleClass="selectpicker">
+								 <f:selectItems value="#{pacienteMB.comboTipoPlanoSaude}"
+                           				itemValue="#{pacienteMB.tipoPlanoSaude.tipsIdTipo}"/>							
+							</h:selectOneMenu>
 						</div>
 					</div>
 					<div class="row">
@@ -230,5 +235,5 @@
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/bootstrap-datepicker.pt-BR.js"></script>
 	<script src="js/script.js"></script>
-</body>
+</h:body>
 </html>

@@ -14,17 +14,17 @@ public class Municipio implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer muniIdMunicipio;
-	private int unidadeFederativaUnfeIdUnidade;
+	private String unidadeFederativaUnfeIdUnidade;
 	private String muniNmMunicipio;
 
 	public Municipio() {
 	}
 
-	public Municipio(int unidadeFederativaUnfeIdUnidade) {
+	public Municipio(String unidadeFederativaUnfeIdUnidade) {
 		this.unidadeFederativaUnfeIdUnidade = unidadeFederativaUnfeIdUnidade;
 	}
 
-	public Municipio(int unidadeFederativaUnfeIdUnidade, String muniNmMunicipio) {
+	public Municipio(String unidadeFederativaUnfeIdUnidade, String muniNmMunicipio) {
 		this.unidadeFederativaUnfeIdUnidade = unidadeFederativaUnfeIdUnidade;
 		this.muniNmMunicipio = muniNmMunicipio;
 	}
@@ -41,12 +41,12 @@ public class Municipio implements java.io.Serializable {
 	}
 
 	@Column(name = "UNIDADE_FEDERATIVA_UNFE_ID_UNIDADE", nullable = false)
-	public int getUnidadeFederativaUnfeIdUnidade() {
+	public String getUnidadeFederativaUnfeIdUnidade() {
 		return this.unidadeFederativaUnfeIdUnidade;
 	}
 
 	public void setUnidadeFederativaUnfeIdUnidade(
-			int unidadeFederativaUnfeIdUnidade) {
+			String unidadeFederativaUnfeIdUnidade) {
 		this.unidadeFederativaUnfeIdUnidade = unidadeFederativaUnfeIdUnidade;
 	}
 

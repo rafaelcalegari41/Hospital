@@ -1,11 +1,8 @@
 package br.com.hospital.pojo;
 
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,7 +11,7 @@ import javax.persistence.Table;
 public class UnidadeFederativa implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Integer unfeIdUnidade;
+	private String unfeIdUnidade;
 	private String unfeNmUnidade;
 
 	public UnidadeFederativa() {
@@ -24,14 +21,13 @@ public class UnidadeFederativa implements java.io.Serializable {
 		this.unfeNmUnidade = unfeNmUnidade;
 	}
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@Id	
 	@Column(name = "UNFE_ID_UNIDADE", unique = true, nullable = false)
-	public Integer getUnfeIdUnidade() {
+	public String getUnfeIdUnidade() {
 		return this.unfeIdUnidade;
 	}
 
-	public void setUnfeIdUnidade(Integer unfeIdUnidade) {
+	public void setUnfeIdUnidade(String unfeIdUnidade) {
 		this.unfeIdUnidade = unfeIdUnidade;
 	}
 

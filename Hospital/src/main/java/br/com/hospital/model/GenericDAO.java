@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import br.com.hospital.util.HibernateUtil;
 
@@ -75,6 +77,25 @@ public class GenericDAO<T, ID extends Serializable> {
 		}
 
 		return instance;
+	}
+	
+	public List<T> findByName(String parametro, String valor) {
+		List<?> list = null;		
+		session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			Criteria criteria = session.createCriteria(object);
+			criteria.add(Restrictions.eq(parametro, valor));
+			list = criteria.list();
+			session.flush();
+			transaction.commit();
+		} catch (Exception erro) {
+			transaction.rollback();
+		} finally {
+			session.close();
+		}
+
+		return (List<T>) list;
 	}
 
 	@SuppressWarnings("unchecked")
