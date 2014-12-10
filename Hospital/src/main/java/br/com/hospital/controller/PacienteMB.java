@@ -31,6 +31,7 @@ public class PacienteMB {
 	private List<TipoPlanoSaude> tiposPlanoSaude;
 	private List<Municipio> municipios;
 	private List<UnidadeFederativa> unidadeFederativas;
+	private List<Pessoa> pacientes;
 	private List<SelectItem> comboTipoPlanoSaude;
 	private List<SelectItem> comboUf;
 	private List<SelectItem> comboMunicipio;	
@@ -49,12 +50,16 @@ public class PacienteMB {
 		unidadeFederativa = new UnidadeFederativa();
 		tipoPlanoSaude = new TipoPlanoSaude();
 		pessoaBO = new PessoaBO();
+		tipoPlanoSaudeBO = new TipoPlanoSaudeBO();
+		unidadeFederativaBO = new UnidadeFederativaBO();
+		municipioBO = new MunicipioBO();
 		tiposPlanoSaude = new ArrayList();
 		unidadeFederativas = new ArrayList();
 		municipios = new ArrayList();
 		listarTipoPlanoSaude();
 		listarUf();
 		listarCidade();
+		pacientes = listar();
 	}
 	
 	public void salvar(Pessoa pessoa){
@@ -184,5 +189,15 @@ public class PacienteMB {
 
 	public void setIdPlanoSaude(Integer idPlanoSaude) {
 		this.idPlanoSaude = idPlanoSaude;
-	}		
+	}
+
+	public List<Pessoa> getPacientes() {
+		return pacientes;
+	}
+
+	public void setPacienntes(List<Pessoa> pacientes) {
+		this.pacientes = pacientes;
+	}	
+	
+	
 }

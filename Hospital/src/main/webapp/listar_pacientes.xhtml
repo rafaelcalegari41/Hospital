@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
     <head>
         <title>SUCH - Sistema Unificado de Controle Hospitalar</title>
         <meta charset="UTF-8"/>
@@ -67,25 +69,22 @@
                         </div>
                         <br />
                         <div class="row">
-                            <div class="col-md-12">
-                                <table class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Nome</th>
-                                            <th>CPF</th>
-                                            <th>Editar</th>
-                                            <th>Excluir</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>John Carter</td>
-                                            <td>047.077.469-00</td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="col-md-12">                            
+	                            <h:dataTable value="#{pacienteMB.pacientes}" var="paciente"
+					    			styleClass="table table-bordered table-striped">
+					    			<h:column>
+					    				<f:facet name="header">
+								            <h:outputText value="Nome" />
+								        </f:facet>				    			
+					    				#{paciente.pessNmNome}
+					    			</h:column>
+					    			<h:column>
+					    				<f:facet name="header">
+								            <h:outputText value="CPF" />
+								        </f:facet>				    			
+					    				#{paciente.pessNrCpf}
+					    			</h:column>
+					    		</h:dataTable>
                             </div>
                         </div>
                         <br />
