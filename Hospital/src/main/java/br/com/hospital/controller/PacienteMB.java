@@ -55,6 +55,25 @@ public class PacienteMB {
 		listarCidade();
 	}
 	
+	public void salvar(Pessoa pessoa){
+		if(pessoaBO.salvar(pessoa))
+			System.out.println("Salvo com sucesso!");
+	}
+	
+	public void atualizar(Pessoa pessoa){
+		if(pessoaBO.atualizar(pessoa))
+			System.out.println("Atualizado com sucesso!");
+	}
+	
+	public void deletar(Pessoa pessoa){
+		if(pessoaBO.deletar(pessoa))
+			System.out.println("Deletado com sucesso!");
+	}
+	
+	public List<Pessoa> listar(){
+		return pessoaBO.listar();
+	}
+	
 	public void listarTipoPlanoSaude(){   		
 		tiposPlanoSaude = daoTipoPlano.findAll();
 		comboTipoPlanoSaude = new ArrayList<SelectItem>(); 
@@ -100,25 +119,6 @@ public class PacienteMB {
             comboMunicipio.add(si);
         }
     }
-	
-	public void salvar(Pessoa pessoa){
-		if(pessoaBO.salvar(pessoa))
-			System.out.println("Salvo com sucesso!");
-	}
-	
-	public void atualizar(Pessoa pessoa){
-		if(pessoaBO.atualizar(pessoa))
-			System.out.println("Atualizado com sucesso!");
-	}
-	
-	public void deletar(Pessoa pessoa){
-		if(pessoaBO.deletar(pessoa))
-			System.out.println("Deletado com sucesso!");
-	}
-	
-	public List<Pessoa> listar(){
-		return pessoaBO.listar();
-	}
 
 	public Pessoa getPessoa() {
 		return pessoa;

@@ -2,19 +2,13 @@ package br.com.hospital.business;
 
 import java.util.List;
 
-import br.com.hospital.controller.MunicipioDAO;
-import br.com.hospital.controller.TipoPlanoSaudeDAO;
-import br.com.hospital.controller.UnidadeFederativaDAO;
 import br.com.hospital.model.PessoaDAO;
 import br.com.hospital.pojo.Pessoa;
 
 public class PessoaBO {
 	
 	private PessoaDAO dao = new PessoaDAO();
-	private TipoPlanoSaudeDAO daoTipoPlano = new TipoPlanoSaudeDAO();
-	private MunicipioDAO municipioDAO = new MunicipioDAO();
-	private UnidadeFederativaDAO unidadeFederativaDAO = new UnidadeFederativaDAO();
-	
+		
 	public boolean salvar(Pessoa pessoa){
 		System.out.println(pessoa.getPessNmNome());
 		
