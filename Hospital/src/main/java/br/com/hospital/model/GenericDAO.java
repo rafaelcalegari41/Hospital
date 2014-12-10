@@ -26,8 +26,10 @@ public class GenericDAO<T, ID extends Serializable> {
 			session.save(entity);
 			session.flush();
 			transaction.commit();
+			return true;
 		} catch (Exception erro) {
 			transaction.rollback();
+			return false;
 		} finally {
 			session.close();
 		}
@@ -73,11 +75,9 @@ public class GenericDAO<T, ID extends Serializable> {
 		try {
 			instance = (T) session.load(object, id);			
 			session.flush();
-			transaction.commit();
-			return true;
+			transaction.commit();			
 		} catch (Exception erro) {
-			transaction.rollback();
-			return false
+			transaction.rollback();			
 		} finally {
 			session.close();
 		}
