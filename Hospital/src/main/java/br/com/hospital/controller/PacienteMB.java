@@ -8,11 +8,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.SelectItem;
 
+import br.com.hospital.business.MunicipioBO;
 import br.com.hospital.business.PessoaBO;
-import br.com.hospital.model.MunicipioDAO;
-import br.com.hospital.model.PessoaDAO;
-import br.com.hospital.model.TipoPlanoSaudeDAO;
-import br.com.hospital.model.UnidadeFederativaDAO;
+import br.com.hospital.business.TipoPlanoSaudeBO;
+import br.com.hospital.business.UnidadeFederativaBO;
 import br.com.hospital.pojo.Municipio;
 import br.com.hospital.pojo.Paciente;
 import br.com.hospital.pojo.Pessoa;
@@ -38,6 +37,9 @@ public class PacienteMB {
 	
 	private Integer idPlanoSaude;	
 	private PessoaBO pessoaBO;
+	private TipoPlanoSaudeBO tipoPlanoSaudeBO;
+	private UnidadeFederativaBO unidadeFederativaBO;
+	private MunicipioBO municipioBO;
 	
 	@PostConstruct
 	public void inicio(){
@@ -75,7 +77,7 @@ public class PacienteMB {
 	}
 	
 	public void listarTipoPlanoSaude(){   		
-		tiposPlanoSaude = daoTipoPlano.findAll();
+		tiposPlanoSaude = tipoPlanoSaudeBO.listar();
 		comboTipoPlanoSaude = new ArrayList<SelectItem>(); 
         SelectItem si = new SelectItem();
         si.setLabel("Selecione");
@@ -90,7 +92,7 @@ public class PacienteMB {
     }	
 	
 	public void listarUf(){   		
-		unidadeFederativas = unidadeFederativaDAO.findAll();
+		unidadeFederativas = unidadeFederativaBO.listar();
         comboUf = new ArrayList<SelectItem>(); 
         SelectItem si = new SelectItem();
         si.setLabel("Selecione");
@@ -106,7 +108,7 @@ public class PacienteMB {
 	
 	public void listarCidade(){	
 		System.out.println("Acessou");
-		municipios = municipioDAO.findByName("unidadeFederativaUnfeIdUnidade", unidadeFederativa.getUnfeIdUnidade());
+		municipios = municipioBO.listarPorNome("unidadeFederativaUnfeIdUnidade", unidadeFederativa.getUnfeIdUnidade());
         comboMunicipio = new ArrayList<SelectItem>(); 
         SelectItem si = new SelectItem();
         si.setLabel("Selecione");
