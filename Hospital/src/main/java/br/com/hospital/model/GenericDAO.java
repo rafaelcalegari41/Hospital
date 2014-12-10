@@ -19,7 +19,7 @@ public class GenericDAO<T, ID extends Serializable> {
 	private Session session;
 	private Class<?> object = getObject();
 
-	public void save(T entity) {
+	public boolean save(T entity) {
 		session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -33,29 +33,33 @@ public class GenericDAO<T, ID extends Serializable> {
 		}
 	}
 
-	public void update(T entity) {	
+	public boolean update(T entity) {	
 		session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
 			session.update(entity);
 			session.flush();
 			transaction.commit();
+			return true;
 		} catch (Exception erro) {
 			transaction.rollback();
+			return false;
 		} finally {
 			session.close();
 		}
 	}
 
-	public void delete(T entity) {	
+	public boolean delete(T entity) {	
 		session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
 			session.delete(entity);
 			session.flush();
 			transaction.commit();
+			return true;
 		} catch (Exception erro) {
 			transaction.rollback();
+			return false;
 		} finally {
 			session.close();
 		}
@@ -70,8 +74,10 @@ public class GenericDAO<T, ID extends Serializable> {
 			instance = (T) session.load(object, id);			
 			session.flush();
 			transaction.commit();
+			return true;
 		} catch (Exception erro) {
 			transaction.rollback();
+			return false
 		} finally {
 			session.close();
 		}

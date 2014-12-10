@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.SelectItem;
 
+import br.com.hospital.business.PessoaBO;
 import br.com.hospital.model.MunicipioDAO;
 import br.com.hospital.model.PessoaDAO;
 import br.com.hospital.model.TipoPlanoSaudeDAO;
@@ -25,20 +26,18 @@ public class PacienteMB {
 	
 	private Pessoa pessoa;
 	private Paciente paciente;
+	private UnidadeFederativa unidadeFederativa;
+	private Municipio municipio;
+	private TipoPlanoSaude tipoPlanoSaude;
 	private List<TipoPlanoSaude> tiposPlanoSaude;
 	private List<Municipio> municipios;
 	private List<UnidadeFederativa> unidadeFederativas;
 	private List<SelectItem> comboTipoPlanoSaude;
 	private List<SelectItem> comboUf;
 	private List<SelectItem> comboMunicipio;	
-	private TipoPlanoSaude tipoPlanoSaude;
-	private UnidadeFederativa unidadeFederativa;
-	private Municipio municipio;
-	private Integer idPlanoSaude;
-	private PessoaDAO dao = new PessoaDAO();
-	private TipoPlanoSaudeDAO daoTipoPlano = new TipoPlanoSaudeDAO();
-	private MunicipioDAO municipioDAO = new MunicipioDAO();
-	private UnidadeFederativaDAO unidadeFederativaDAO = new UnidadeFederativaDAO();
+	
+	private Integer idPlanoSaude;	
+	private PessoaBO pessoaBO;
 	
 	@PostConstruct
 	public void inicio(){
@@ -47,6 +46,7 @@ public class PacienteMB {
 		municipio = new Municipio();
 		unidadeFederativa = new UnidadeFederativa();
 		tipoPlanoSaude = new TipoPlanoSaude();
+		pessoaBO = new PessoaBO();
 		tiposPlanoSaude = new ArrayList();
 		unidadeFederativas = new ArrayList();
 		municipios = new ArrayList();
@@ -101,22 +101,23 @@ public class PacienteMB {
         }
     }
 	
-	public void salvar(){
-		System.out.println(pessoa.getPessNmNome());
-		
-		//dao.save(pessoa);
+	public void salvar(Pessoa pessoa){
+		if(pessoaBO.salvar(pessoa))
+			System.out.println("Salvo com sucesso!");
 	}
 	
-	public void atualizar(){
-		dao.update(pessoa);
+	public void atualizar(Pessoa pessoa){
+		if(pessoaBO.atualizar(pessoa))
+			System.out.println("Atualizado com sucesso!");
 	}
 	
-	public void deletar(){
-		dao.delete(pessoa);
+	public void deletar(Pessoa pessoa){
+		if(pessoaBO.deletar(pessoa))
+			System.out.println("Deletado com sucesso!");
 	}
 	
 	public List<Pessoa> listar(){
-		return dao.findAll();
+		return pessoaBO.listar();
 	}
 
 	public Pessoa getPessoa() {
@@ -135,14 +136,22 @@ public class PacienteMB {
 		this.paciente = paciente;
 	}
 
-	public List<SelectItem> getComboUf() {
-		return comboUf;
+	public Municipio getMunicipio() {
+		return municipio;
 	}
 
-	public void setComboUf(List<SelectItem> comboUf) {
-		this.comboUf = comboUf;
+	public void setMunicipio(Municipio municipio) {
+		this.municipio = municipio;
 	}
-	
+
+	public List<Municipio> getMunicipios() {
+		return municipios;
+	}
+
+	public void setMunicipios(List<Municipio> municipios) {
+		this.municipios = municipios;
+	}
+
 	public List<SelectItem> getComboTipoPlanoSaude() {
 		return comboTipoPlanoSaude;
 	}
@@ -151,36 +160,12 @@ public class PacienteMB {
 		this.comboTipoPlanoSaude = comboTipoPlanoSaude;
 	}
 
-	public TipoPlanoSaude getTipoPlanoSaude() {
-		return tipoPlanoSaude;
+	public List<SelectItem> getComboUf() {
+		return comboUf;
 	}
 
-	public void setTipoPlanoSaude(TipoPlanoSaude tipoPlanoSaude) {
-		this.tipoPlanoSaude = tipoPlanoSaude;
-	}
-
-	public Integer getIdPlanoSaude() {
-		return idPlanoSaude;
-	}
-
-	public void setIdPlanoSaude(Integer idPlanoSaude) {
-		this.idPlanoSaude = idPlanoSaude;
-	}
-
-	public UnidadeFederativa getUnidadeFederativa() {
-		return unidadeFederativa;
-	}
-
-	public void setUnidadeFederativa(UnidadeFederativa unidadeFederativa) {
-		this.unidadeFederativa = unidadeFederativa;
-	}
-
-	public Municipio getMunicipio() {
-		return municipio;
-	}
-
-	public void setMunicipio(Municipio municipio) {
-		this.municipio = municipio;
+	public void setComboUf(List<SelectItem> comboUf) {
+		this.comboUf = comboUf;
 	}
 
 	public List<SelectItem> getComboMunicipio() {
@@ -190,8 +175,12 @@ public class PacienteMB {
 	public void setComboMunicipio(List<SelectItem> comboMunicipio) {
 		this.comboMunicipio = comboMunicipio;
 	}
-	
-	
-	
-	
+
+	public Integer getIdPlanoSaude() {
+		return idPlanoSaude;
+	}
+
+	public void setIdPlanoSaude(Integer idPlanoSaude) {
+		this.idPlanoSaude = idPlanoSaude;
+	}		
 }
