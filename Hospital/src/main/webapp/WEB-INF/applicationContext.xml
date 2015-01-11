@@ -1,0 +1,33 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+  xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+           
+	<http auto-config="true" access-denied-page="/403.xhtml">	
+	    <intercept-url pattern="/index.xhtml" access="ROLE_ADMINISTRADORES" />    
+		<form-login login-page="/login.xhtml" authentication-failure-url="/login.xhtml"/>
+		<logout logout-success-url="/login.xhtml" />
+	</http>
+	
+	<!-- Conexão Spring jdbc para busca de usuário no banco de dados -->
+	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">	      
+	    <beans:property  name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<beans:property  name="url" value="jdbc:mysql://localhost/hospital" />
+		<beans:property  name="username" value="root" />
+		<beans:property  name="password" value="nando" />
+	</beans:bean>
+		
+	<authentication-manager>
+		<authentication-provider>
+		    <jdbc-user-service data-source-ref="dataSource"				
+				users-by-username-query="select email, senha, 'true' as enabled from usuario where email=?"
+		    	authorities-by-username-query="select u.email, level.descricao from usuario u, 
+		    	                                      autorizacao level
+		      									where u.id_usuario_sistema = level.id_usuario_sistema and u.email = ? "/>		
+		</authentication-provider>
+	</authentication-manager>
+           
+</beans:beans>
