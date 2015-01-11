@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "agendamento", catalog = "hospital")
+@Table(name = "agendamento")
 public class Agendamento implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -30,8 +30,7 @@ public class Agendamento implements java.io.Serializable {
 	private Date agenDtEspera;
 	private Integer agenIdMedico;
 
-	public Agendamento() {
-	}
+	public Agendamento() {}
 
 	public Agendamento(int pacientePessoaPessIdPessoa,
 			int atendentePessoaPessIdPessoa, int medicoPessoaPessIdPessoa,
