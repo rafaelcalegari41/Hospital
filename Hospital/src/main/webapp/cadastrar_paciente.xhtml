@@ -1,239 +1,194 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>
-<title>SUCH 颅 Sistema Unificado de Controle Hospitalar</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>SUCH 颅 Sistema Unificado de Controle Hospitalar</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link href="css/bootstrap.min.css" rel="stylesheet" />
-<link href="css/bootstrap-select.css" rel="stylesheet" />
-<link href="css/datepicker3.css" rel="stylesheet" />
-<link href="css/estilo.css" rel="stylesheet" />
-</h:head>
-<h:body>
-	<div class="principal">
-		<div class="lateral">
-			<div class="logo"></div>
-			<div class="menu">
-				<dl>
-					<dt>AGENDAMENTO</dt>
-					<dd id="menu-instituicoes">
-						<a href="#">Por data</a>
-					</dd>
-					<dd id="menu-disciplina">
-						<a href="#">Por hora</a>
-					</dd>
-					<dd id="menu-disciplina">
-						<a href="#">Obter agendamento</a>
-					</dd>
-					<dt>ATENDIMENTO</dt>
-					<dd id="menu-areas">
-						<a href="#">Por data</a>
-					</dd>
-					<dd id="menu-subareas">
-						<a href="#">Por hora</a>
-					</dd>
-					<dd id="menu-assuntos">
-						<a href="#">Por paciente</a>
-					</dd>
-					<dt>CADASTRO</dt>
-					<dd id="menu-questoes">
-						<a href="#">Agendamento</a>
-					</dd>
-					<dd id="menu-avaliacoes">
-						<a href="#">Atendente</a>
-					</dd>
-					<dd id="menu-avaliacoes">
-						<a href="#">M茅dico</a>
-					</dd>
-					<dd id="menu-avaliacoes">
-						<a href="#">Paciente</a>
-					</dd>
-					<dd id="menu-avaliacoes">
-						<a href="#">Plano de sa煤de</a>
-					</dd>
-					<dt>LISTAR</dt>
-					<dd id="menu-questoes">
-						<a href="#">Atendentes</a>
-					</dd>
-					<dd id="menu-avaliacoes">
-						<a href="#">M茅dicos</a>
-					</dd>
-					<dd id="menu-avaliacoes">
-						<a href="#">Pacientes</a>
-					</dd>
-					<dd id="menu-avaliacoes">
-						<a href="#">Planos de sa煤de</a>
-					</dd>
-					<dt>PESQUISA</dt>
-					<dd id="menu-questoes">
-						<a href="#">Agendamento</a>
-					</dd>
-					<dd id="menu-avaliacoes">
-						<a href="#">Atendente</a>
-					</dd>
-					<dd id="menu-avaliacoes">
-						<a href="#">M茅dico</a>
-					</dd>
-					<dd id="menu-avaliacoes">
-						<a href="#">Paciente</a>
-					</dd>
-					<dd id="menu-avaliacoes">
-						<a href="#">Plano de sa煤de</a>
-					</dd>
-				</dl>
-			</div>
-		</div>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-select.css" rel="stylesheet" />
+        <link href="css/datepicker3.css" rel="stylesheet" />
+        <link href="css/estilo.css" rel="stylesheet" />
+    </h:head>
+    <h:body>
+        <div class="principal">
+            <div class="lateral">
+                <div class="logo"></div>
+                <div class="menu">
+                    <dl>
+                        <dt>AGENDAMENTO</dt>
+                        <dd id="menu-instituicoes"><a href="#">Por data</a></dd>
+                        <dd id="menu-disciplina"><a href="#">Por hora</a></dd>
+                        <dd id="menu-disciplina"><a href="obter_agendamento.xhtml">Obter agendamento</a></dd>
+                        <dt>ATENDIMENTO</dt>
+                        <dd id="menu-areas"><a href="#">Por data</a></dd>
+                        <dd id="menu-subareas"><a href="#">Por hora</a></dd>
+                        <dd id="menu-assuntos"><a href="#">Por paciente</a></dd>
+                        <dt>CADASTRO</dt>
+                        <dd id="menu-questoes"><a href="cadastrar_agendamento.xhtml">Agendamento</a></dd>
+                        <dd id="menu-avaliacoes"><a href="cadastrar_atendente.xhtml">Atendente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="cadastrar_medico.xhtml">M閐ico</a></dd>
+                        <dd id="menu-avaliacoes"><a href="cadastrar_paciente.xhtml">Paciente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="cadastrar_plano_saude.xhtml">Plano de sa鷇e</a></dd>
+                        <dt>PESQUISA</dt>
+                        <dd id="menu-questoes"><a href="#">Agendamento</a></dd>
+                        <dd id="menu-avaliacoes"><a href="pesquisar_atendentes.xhtml">Atendente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="pesquisar_medicos.xhtml">M閐ico</a></dd>
+                        <dd id="menu-avaliacoes"><a href="pesquisar_pacientes.xhtml">Paciente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="pesquisar_planos_saude.xhtml">Plano de sa鷇e</a></dd>
+                    </dl>
+                </div>
+            </div>
 
-		<div class="fundo-cinza-principal">
-			<header>
-			<div class="logo-expoente"></div>
-			<div class="titulo-menu">CADASTRAR PACIENTE</div>
-			</header>
-			<div class="conteudo">
-				<h:form role="form">
-					<div class="row">
-						<div class="col-md-12">
-							<label for="nome">Nome</label>
-							<h:inputText value="#{pacienteMB.pessoa.pessNmNome}"
-								styleClass="form-control" />
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<label for="cnpj">CPF</label>
-							<h:inputText value="#{agendamentoMB.agendamento.nome}"
-								styleClass="form-control" required="true"
-								requiredMessage="Campo CPF obrigat贸rio" />
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8">
-							<label for="logradouro">Logradouro</label>
-							<h:inputText value="#{pacienteMB.pessoa.pessTxLogradouro}"
-								styleClass="form-control" required="true"
-								requiredMessage="Campo logradouro obrigat贸rio" />
+            <div class="fundo-cinza-principal">
+                <header>
+                    <div class="logo-expoente"></div>
+                    <div class="titulo-menu">CADASTRAR PACIENTE</div>
+                </header>
+                <div class="conteudo">
+                    <!--<h:form role="form"> -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="nome">Nome</label>
+                                <h:inputText value="#{pacienteMB.pessoa.pessNmNome}"
+                                             styleClass="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="cnpj">CPF</label>
+                                <h:inputText value="#{agendamentoMB.agendamento.nome}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo CPF obrigat贸rio" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label for="logradouro">Logradouro</label>
+                                <h:inputText value="#{pacienteMB.pessoa.pessTxLogradouro}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo logradouro obrigat贸rio" />
 
-						</div>
-						<div class="col-md-4">
-							<label for="numero">N煤mero</label>
-							<h:inputText value="#{pacienteMB.pessoa.pessNrNumero}"
-								styleClass="form-control" required="true"
-								requiredMessage="Campo n煤mero obrigat贸rio" />
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8">
-							<label for="bairro">Bairro</label>
-							<h:inputText value="#{pacienteMB.pessoa.pessTxBairro}"
-								styleClass="form-control" required="true"
-								requiredMessage="Campo bairro obrigat贸rio" />
-						</div>
-						<div class="col-md-4">
-							<label for="cep">CEP</label>
-							<h:inputText value="#{pacienteMB.pessoa.pessTxCep}"
-								styleClass="form-control" required="true"
-								requiredMessage="Campo CEP obrigat贸rio" />
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label for="uf">UF</label> 
-							 <h:selectOneMenu id="siglauf" required="true"
-		                        value="#{pacienteMB.unidadeFederativa.unfeIdUnidade}" styleClass="selectpicker">
-		                        <f:selectItems value="#{pacienteMB.comboUf}"
-		                           itemValue="#{pacienteMB.unidadeFederativa.unfeIdUnidade}"/>
-		                        <f:ajax execute="@this" event="change" render="cidade"
-		                           listener="#{pacienteMB.listarCidade}"/>                       
-		                     </h:selectOneMenu>
-						</div>
-						<div class="col-md-4">
-							<label for="cidade">Cidade</label> 
-							  <h:selectOneMenu id="cidade" styleClass="selectpicker"
-		                         value="#{pacienteMB.municipio.muniIdMunicipio}">
-		                         <f:selectItems value="#{pacienteMB.comboMunicipio}"
-		                            itemValue="#{pacienteMB.municipio.muniIdMunicipio}" />
-		                      </h:selectOneMenu>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label for="tel_fixo">Telefone Fixo</label>
-							<h:inputText value="#{pacienteMB.pessoa.pessNrTelefone}"
-								styleClass="form-control" required="true"
-								requiredMessage="Campo fone fixo obrigat贸rio" />
-						</div>
-						<div class="col-md-4">
-							<label for="tel_celular">Telefone Celular</label>
-							<h:inputText value="#{pacienteMB.pessoa.pessNrCelular}"
-								styleClass="form-control" required="true"
-								requiredMessage="Campo fone celular obrigat贸rio" />
-						</div>
-					</div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="numero">N煤mero</label>
+                                <h:inputText value="#{pacienteMB.pessoa.pessNrNumero}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo n煤mero obrigat贸rio" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label for="bairro">Bairro</label>
+                                <h:inputText value="#{pacienteMB.pessoa.pessTxBairro}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo bairro obrigat贸rio" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="cep">CEP</label>
+                                <h:inputText value="#{pacienteMB.pessoa.pessTxCep}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo CEP obrigat贸rio" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="uf">UF</label> 
+                                <h:selectOneMenu id="siglauf" required="true"
+                                                 value="#{pacienteMB.unidadeFederativa.unfeIdUnidade}" styleClass="selectpicker">
+                                    <f:selectItems value="#{pacienteMB.comboUf}"
+                                                   itemValue="#{pacienteMB.unidadeFederativa.unfeIdUnidade}"/>
+                                    <f:ajax execute="@this" event="change" render="cidade"
+                                            listener="#{pacienteMB.listarCidade}"/>                       
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="cidade">Cidade</label> 
+                                <h:selectOneMenu id="cidade" styleClass="selectpicker"
+                                                 value="#{pacienteMB.municipio.muniIdMunicipio}">
+                                    <f:selectItems value="#{pacienteMB.comboMunicipio}"
+                                                   itemValue="#{pacienteMB.municipio.muniIdMunicipio}" />
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="tel_fixo">Telefone Fixo</label>
+                                <h:inputText value="#{pacienteMB.pessoa.pessNrTelefone}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo fone fixo obrigat贸rio" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="tel_celular">Telefone Celular</label>
+                                <h:inputText value="#{pacienteMB.pessoa.pessNrCelular}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo fone celular obrigat贸rio" />
+                            </div>
+                        </div>
 
-					<div class="row">
-						<div class="col-md-12">
-							<label for="email">E-mail</label><br />
-							<h:inputText value="#{pacienteMB.pessoa.pessTxEmail}"
-								styleClass="form-control" />
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label for="email">N煤mero do Plano de Sa煤de</label><br />
-							<h:inputText value="#{pacienteMB.paciente.paciIdPlanoSaude}"
-								styleClass="form-control" />
-						</div>
-						<div class="col-md-4">
-							<label for="nome_plano">Plano de Sa煤de</label> 
-							<h:selectOneMenu value="#{pacienteMB.idPlanoSaude}" styleClass="selectpicker">
-								<f:selectItem itemValue="0" itemLabel="Selecione" />
-							   <f:selectItem itemValue="1" itemLabel="Clinipam" />
-							   <f:selectItem itemValue="2" itemLabel="Unimed" />	   							
-							</h:selectOneMenu>	
-						</div>
-						<div class="col-md-4">
-							<label for="tipo_plano">Tipo do Plano de Sa煤de</label> 
-							<h:selectOneMenu value="#{pacienteMB.tipoPlanoSaude.tipsIdTipo}" styleClass="selectpicker">
-								 <f:selectItems value="#{pacienteMB.comboTipoPlanoSaude}"
-                           				itemValue="#{pacienteMB.tipoPlanoSaude.tipsIdTipo}"/>							
-							</h:selectOneMenu>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label for="data_cadastro">Data do Cadastro</label>
-							<div class="input-append date" id="datepicker"
-								data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-								<h:inputText value="#{pacienteMB.paciente.paciDtCadastro}"
-									styleClass="form-control" />
-								<span class="add-on"><i class="icon-th"></i></span>
-							</div>
-						</div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="email">E-mail</label><br />
+                                <h:inputText value="#{pacienteMB.pessoa.pessTxEmail}"
+                                             styleClass="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="email">N煤mero do Plano de Sa煤de</label><br />
+                                <h:inputText value="#{pacienteMB.paciente.paciIdPlanoSaude}"
+                                             styleClass="form-control" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="nome_plano">Plano de Sa煤de</label> 
+                                <h:selectOneMenu value="#{pacienteMB.idPlanoSaude}" styleClass="selectpicker">
+                                    <f:selectItem itemValue="0" itemLabel="Selecione" />
+                                    <f:selectItem itemValue="1" itemLabel="Clinipam" />
+                                    <f:selectItem itemValue="2" itemLabel="Unimed" />	   							
+                                </h:selectOneMenu>	
+                            </div>
+                            <div class="col-md-4">
+                                <label for="tipo_plano">Tipo do Plano de Sa煤de</label> 
+                                <h:selectOneMenu value="#{pacienteMB.tipoPlanoSaude.tipsIdTipo}" styleClass="selectpicker">
+                                    <f:selectItems value="#{pacienteMB.comboTipoPlanoSaude}"
+                                                   itemValue="#{pacienteMB.tipoPlanoSaude.tipsIdTipo}"/>							
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="data_cadastro">Data do Cadastro</label>
+                                <div class="input-append date" id="datepicker"
+                                     data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                                    <h:inputText value="#{pacienteMB.paciente.paciDtCadastro}"
+                                                 styleClass="form-control" />
+                                    <span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+                            </div>
 
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<h:commandButton value="Salvar" action="#{pacienteMB.salvar}"
-								styleClass="btn btn-sm btn-azul right">
-							</h:commandButton>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h:commandButton value="Salvar" action="#{pacienteMB.salvar}"
+                                                 styleClass="btn btn-sm btn-azul right">
+                                </h:commandButton>
 
-						</div>
-					</div>
-				</h:form>
-			</div>
-			<div style="clear: both"></div>
-		</div>
-	</div>
+                            </div>
+                        </div>
+                    <!--</h:form>-->
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
 
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-select.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/bootstrap-datepicker.pt-BR.js"></script>
-	<script src="js/script.js"></script>
-</h:body>
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-select.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/bootstrap-datepicker.pt-BR.js"></script>
+        <script src="js/script.js"></script>
+    </h:body>
 </html>

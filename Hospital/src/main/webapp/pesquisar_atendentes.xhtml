@@ -23,7 +23,7 @@
                         <dt>AGENDAMENTO</dt>
                         <dd id="menu-instituicoes"><a href="#">Por data</a></dd>
                         <dd id="menu-disciplina"><a href="#">Por hora</a></dd>
-                        <dd id="menu-disciplina"><a href="#">Obter agendamento</a></dd>
+                        <dd id="menu-disciplina"><a href="obter_agendamento.xhtml">Obter agendamento</a></dd>
                         <dt>ATENDIMENTO</dt>
                         <dd id="menu-areas"><a href="#">Por data</a></dd>
                         <dd id="menu-subareas"><a href="#">Por hora</a></dd>
@@ -34,17 +34,12 @@
                         <dd id="menu-avaliacoes"><a href="cadastrar_medico.xhtml">Médico</a></dd>
                         <dd id="menu-avaliacoes"><a href="cadastrar_paciente.xhtml">Paciente</a></dd>
                         <dd id="menu-avaliacoes"><a href="cadastrar_plano_saude.xhtml">Plano de saúde</a></dd>
-                        <dt>LISTAR</dt>
-                        <dd id="menu-questoes"><a href="#">Atendentes</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Médicos</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Pacientes</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Planos de saúde</a></dd>
                         <dt>PESQUISA</dt>
                         <dd id="menu-questoes"><a href="#">Agendamento</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Atendente</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Médico</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Paciente</a></dd>
-                        <dd id="menu-avaliacoes"><a href="#">Plano de saúde</a></dd>
+                        <dd id="menu-avaliacoes"><a href="pesquisar_atendentes.xhtml">Atendente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="pesquisar_medicos.xhtml">Médico</a></dd>
+                        <dd id="menu-avaliacoes"><a href="pesquisar_pacientes.xhtml">Paciente</a></dd>
+                        <dd id="menu-avaliacoes"><a href="pesquisar_planos_saude.xhtml">Plano de saúde</a></dd>
                     </dl>
                 </div>
             </div>
@@ -52,13 +47,13 @@
             <div class="fundo-cinza-principal">
                 <header>
                     <div class="logo-expoente"></div>
-                    <div class="titulo-menu">LISTAR PACIENTES</div>
+                    <div class="titulo-menu">LISTAR ATENDENTES</div>
                 </header>
                 <div class="conteudo">
                     <form role="form">
                         <div class="row">
                             <div class="col-md-12">
-                                <label for="autor">Paciente</label>
+                                <label for="autor">Atendente</label>
                                 <input type="text" class="form-control" id="autor"/>
                             </div>
                         </div>
@@ -69,22 +64,25 @@
                         </div>
                         <br />
                         <div class="row">
-                            <div class="col-md-12">                            
-	                            <h:dataTable value="#{pacienteMB.pacientes}" var="paciente"
-					    			styleClass="table table-bordered table-striped">
-					    			<h:column>
-					    				<f:facet name="header">
-								            <h:outputText value="Nome" />
-								        </f:facet>				    			
-					    				#{paciente.pessNmNome}
-					    			</h:column>
-					    			<h:column>
-					    				<f:facet name="header">
-								            <h:outputText value="CPF" />
-								        </f:facet>				    			
-					    				#{paciente.pessNrCpf}
-					    			</h:column>
-					    		</h:dataTable>
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>E-mail</th>
+                                            <th>Editar</th>
+                                            <th>Excluir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>John Carter</td>
+                                            <td>johncarter@mail.com</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                         <br />
