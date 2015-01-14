@@ -10,38 +10,38 @@ import javax.persistence.Table;
 public class Medico implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int pessoaPessIdPessoa;
-	private int especialidadeEspeIdEspecialidade;
+	private Pessoa pessoa;
+	private Especialidade especialidade;
 	private String mediIdCrm;
 
 	public Medico() {
 	}
 
-	public Medico(int pessoaPessIdPessoa, int especialidadeEspeIdEspecialidade,
+	public Medico(Pessoa pessoa, Especialidade especialidade,
 			String mediIdCrm) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
-		this.especialidadeEspeIdEspecialidade = especialidadeEspeIdEspecialidade;
+		this.pessoa = pessoa;
+		this.especialidade = especialidade;
 		this.mediIdCrm = mediIdCrm;
 	}
 
 	@Id
 	@Column(name = "PESSOA_PESS_ID_PESSOA", unique = true, nullable = false)
-	public int getPessoaPessIdPessoa() {
-		return this.pessoaPessIdPessoa;
+	public Pessoa getPessoaPessIdPessoa() {
+		return this.pessoa;
 	}
 
-	public void setPessoaPessIdPessoa(int pessoaPessIdPessoa) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
+	public void setPessoaPessIdPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
 	@Column(name = "ESPECIALIDADE_ESPE_ID_ESPECIALIDADE", nullable = false)
-	public int getEspecialidadeEspeIdEspecialidade() {
-		return this.especialidadeEspeIdEspecialidade;
+	public Especialidade getEspecialidadeEspeIdEspecialidade() {
+		return this.especialidade;
 	}
 
 	public void setEspecialidadeEspeIdEspecialidade(
-			int especialidadeEspeIdEspecialidade) {
-		this.especialidadeEspeIdEspecialidade = especialidadeEspeIdEspecialidade;
+			Especialidade especialidade) {
+		this.especialidade = especialidade;
 	}
 
 	@Column(name = "MEDI_ID_CRM", nullable = false, length = 100)

@@ -10,23 +10,23 @@ import javax.persistence.Table;
 public class Atendente implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int pessoaPessIdPessoa;
+	private Pessoa pessoa;
 
 	public Atendente() {
 	}
 
-	public Atendente(int pessoaPessIdPessoa) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
+	public Atendente(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
 	@Id
 	@Column(name = "PESSOA_PESS_ID_PESSOA", unique = true, nullable = false)
-	public int getPessoaPessIdPessoa() {
-		return this.pessoaPessIdPessoa;
+	public Pessoa getPessoa() {
+		return this.pessoa;
 	}
 
-	public void setPessoaPessIdPessoa(int pessoaPessIdPessoa) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
+	public void setPessoaPessIdPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
 }

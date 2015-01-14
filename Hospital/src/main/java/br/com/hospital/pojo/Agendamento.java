@@ -16,161 +16,169 @@ import javax.persistence.TemporalType;
 @Table(name = "agendamento")
 public class Agendamento implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1L;
-	private Integer agenIdAgendamento;
-	private int pacientePessoaPessIdPessoa;
-	private int atendentePessoaPessIdPessoa;
-	private int medicoPessoaPessIdPessoa;
-	private int situacaoSituIdSituacao;
-	private int estadoPacienteEspaIdEstado;
-	private Integer agenIdPaciente;
-	private String agenTxAnamnese;
-	private Date agenDtAgendamento;
-	private Integer agenIdAtendente;
-	private Date agenDtEspera;
-	private Integer agenIdMedico;
+    private static final long serialVersionUID = 1L;
+    private Integer agenIdAgendamento;
+    private Paciente paciente;
+    private Atendente atendente;
+    private Medico medico;
+    private Situacao situacao;
+    private EstadoPaciente estadoPaciente;
+    //private Integer agenIdPaciente;
+    private String agenTxAnamnese;
+    private Date agenDtAgendamento;
+    //private Integer agenIdAtendente;
+    private Date agenDtEspera;
+    //private Integer agenIdMedico;
 
-	public Agendamento() {}
+    public Agendamento() {
+    }
 
-	public Agendamento(int pacientePessoaPessIdPessoa,
-			int atendentePessoaPessIdPessoa, int medicoPessoaPessIdPessoa,
-			int situacaoSituIdSituacao, int estadoPacienteEspaIdEstado) {
-		this.pacientePessoaPessIdPessoa = pacientePessoaPessIdPessoa;
-		this.atendentePessoaPessIdPessoa = atendentePessoaPessIdPessoa;
-		this.medicoPessoaPessIdPessoa = medicoPessoaPessIdPessoa;
-		this.situacaoSituIdSituacao = situacaoSituIdSituacao;
-		this.estadoPacienteEspaIdEstado = estadoPacienteEspaIdEstado;
-	}
+    public Agendamento(Paciente paciente,
+            Atendente atendente,
+            Medico medico,
+            Situacao situacao, 
+            EstadoPaciente estadoPaciente) {
+        this.paciente = paciente;
+        this.atendente = atendente;
+        this.medico = medico;
+        this.situacao = situacao;
+        this.estadoPaciente = estadoPaciente;
+    }
 
-	public Agendamento(int pacientePessoaPessIdPessoa,
-			int atendentePessoaPessIdPessoa, int medicoPessoaPessIdPessoa,
-			int situacaoSituIdSituacao, int estadoPacienteEspaIdEstado,
-			Integer agenIdPaciente, String agenTxAnamnese,
-			Date agenDtAgendamento, Integer agenIdAtendente, Date agenDtEspera,
-			Integer agenIdMedico) {
-		this.pacientePessoaPessIdPessoa = pacientePessoaPessIdPessoa;
-		this.atendentePessoaPessIdPessoa = atendentePessoaPessIdPessoa;
-		this.medicoPessoaPessIdPessoa = medicoPessoaPessIdPessoa;
-		this.situacaoSituIdSituacao = situacaoSituIdSituacao;
-		this.estadoPacienteEspaIdEstado = estadoPacienteEspaIdEstado;
-		this.agenIdPaciente = agenIdPaciente;
-		this.agenTxAnamnese = agenTxAnamnese;
-		this.agenDtAgendamento = agenDtAgendamento;
-		this.agenIdAtendente = agenIdAtendente;
-		this.agenDtEspera = agenDtEspera;
-		this.agenIdMedico = agenIdMedico;
-	}
+    public Agendamento(Paciente paciente,
+             Atendente atendente, 
+            Medico medico,
+            Situacao situacao, 
+            EstadoPaciente estadoPaciente,
+           //Integer agenIdPaciente, 
+            String agenTxAnamnese,
+            Date agenDtAgendamento, 
+            //Integer agenIdAtendente, 
+            Date agenDtEspera) {
+            //Integer agenIdMedico
+        this.paciente = paciente;
+        this.atendente = atendente;
+        this.medico = medico;
+        this.situacao = situacao;
+        this.estadoPaciente = estadoPaciente;
+        //this.agenIdPaciente = agenIdPaciente;
+        this.agenTxAnamnese = agenTxAnamnese;
+        this.agenDtAgendamento = agenDtAgendamento;
+        //this.agenIdAtendente = agenIdAtendente;
+        this.agenDtEspera = agenDtEspera;
+        //this.agenIdMedico = agenIdMedico;
+    }
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "AGEN_ID_AGENDAMENTO", unique = true, nullable = false)
-	public Integer getAgenIdAgendamento() {
-		return this.agenIdAgendamento;
-	}
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "AGEN_ID_AGENDAMENTO", unique = true, nullable = false)
+    public Integer getAgenIdAgendamento() {
+        return this.agenIdAgendamento;
+    }
 
-	public void setAgenIdAgendamento(Integer agenIdAgendamento) {
-		this.agenIdAgendamento = agenIdAgendamento;
-	}
+    public void setAgenIdAgendamento(Integer agenIdAgendamento) {
+        this.agenIdAgendamento = agenIdAgendamento;
+    }
 
-	@Column(name = "PACIENTE_PESSOA_PESS_ID_PESSOA", nullable = false)
-	public int getPacientePessoaPessIdPessoa() {
-		return this.pacientePessoaPessIdPessoa;
-	}
+    @Column(name = "PACIENTE_PESSOA_PESS_ID_PESSOA", nullable = false)
+    public Paciente getPaciente() {
+        return this.paciente;
+    }
 
-	public void setPacientePessoaPessIdPessoa(int pacientePessoaPessIdPessoa) {
-		this.pacientePessoaPessIdPessoa = pacientePessoaPessIdPessoa;
-	}
+    public void setPacientePessoaPessIdPessoa(Paciente paciente) {
+        this.paciente = paciente;
+    }
 
-	@Column(name = "ATENDENTE_PESSOA_PESS_ID_PESSOA", nullable = false)
-	public int getAtendentePessoaPessIdPessoa() {
-		return this.atendentePessoaPessIdPessoa;
-	}
+    @Column(name = "ATENDENTE_PESSOA_PESS_ID_PESSOA", nullable = false)
+    public Atendente getAtendente() {
+        return this.atendente;
+    }
 
-	public void setAtendentePessoaPessIdPessoa(int atendentePessoaPessIdPessoa) {
-		this.atendentePessoaPessIdPessoa = atendentePessoaPessIdPessoa;
-	}
+    public void setAtendente(Atendente atendente) {
+        this.atendente = atendente;
+    }
 
-	@Column(name = "MEDICO_PESSOA_PESS_ID_PESSOA", nullable = false)
-	public int getMedicoPessoaPessIdPessoa() {
-		return this.medicoPessoaPessIdPessoa;
-	}
+    @Column(name = "MEDICO_PESSOA_PESS_ID_PESSOA", nullable = false)
+    public Medico getMedico() {
+        return this.medico;
+    }
 
-	public void setMedicoPessoaPessIdPessoa(int medicoPessoaPessIdPessoa) {
-		this.medicoPessoaPessIdPessoa = medicoPessoaPessIdPessoa;
-	}
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
 
-	@Column(name = "SITUACAO_SITU_ID_SITUACAO", nullable = false)
-	public int getSituacaoSituIdSituacao() {
-		return this.situacaoSituIdSituacao;
-	}
+    @Column(name = "SITUACAO_SITU_ID_SITUACAO", nullable = false)
+    public Situacao getSituacao() {
+        return this.situacao;
+    }
 
-	public void setSituacaoSituIdSituacao(int situacaoSituIdSituacao) {
-		this.situacaoSituIdSituacao = situacaoSituIdSituacao;
-	}
+    public void setSituacaoSituIdSituacao(Situacao situacao) {
+        this.situacao = situacao;
+    }
 
-	@Column(name = "ESTADO_PACIENTE_ESPA_ID_ESTADO", nullable = false)
-	public int getEstadoPacienteEspaIdEstado() {
-		return this.estadoPacienteEspaIdEstado;
-	}
+    @Column(name = "ESTADO_PACIENTE_ESPA_ID_ESTADO", nullable = false)
+    public EstadoPaciente getEstadoPaciente() {
+        return this.estadoPaciente;
+    }
 
-	public void setEstadoPacienteEspaIdEstado(int estadoPacienteEspaIdEstado) {
-		this.estadoPacienteEspaIdEstado = estadoPacienteEspaIdEstado;
-	}
+    public void setEstadoPacienteEspaIdEstado(EstadoPaciente estadoPaciente) {
+        this.estadoPaciente = estadoPaciente;
+    }
 
-	@Column(name = "AGEN_ID_PACIENTE")
-	public Integer getAgenIdPaciente() {
-		return this.agenIdPaciente;
-	}
+//    @Column(name = "AGEN_ID_PACIENTE")
+//    public Integer getAgenIdPaciente() {
+//        return this.agenIdPaciente;
+//    }
 
-	public void setAgenIdPaciente(Integer agenIdPaciente) {
-		this.agenIdPaciente = agenIdPaciente;
-	}
+//    public void setAgenIdPaciente(Integer agenIdPaciente) {
+//        this.agenIdPaciente = agenIdPaciente;
+//    }
 
-	@Column(name = "AGEN_TX_ANAMNESE", length = 1000)
-	public String getAgenTxAnamnese() {
-		return this.agenTxAnamnese;
-	}
+    @Column(name = "AGEN_TX_ANAMNESE", length = 1000)
+    public String getAgenTxAnamnese() {
+        return this.agenTxAnamnese;
+    }
 
-	public void setAgenTxAnamnese(String agenTxAnamnese) {
-		this.agenTxAnamnese = agenTxAnamnese;
-	}
+    public void setAgenTxAnamnese(String agenTxAnamnese) {
+        this.agenTxAnamnese = agenTxAnamnese;
+    }
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "AGEN_DT_AGENDAMENTO", length = 10)
-	public Date getAgenDtAgendamento() {
-		return this.agenDtAgendamento;
-	}
+    @Temporal(TemporalType.DATE)
+    @Column(name = "AGEN_DT_AGENDAMENTO", length = 10)
+    public Date getAgenDtAgendamento() {
+        return this.agenDtAgendamento;
+    }
 
-	public void setAgenDtAgendamento(Date agenDtAgendamento) {
-		this.agenDtAgendamento = agenDtAgendamento;
-	}
+    public void setAgenDtAgendamento(Date agenDtAgendamento) {
+        this.agenDtAgendamento = agenDtAgendamento;
+    }
 
-	@Column(name = "AGEN_ID_ATENDENTE")
-	public Integer getAgenIdAtendente() {
-		return this.agenIdAtendente;
-	}
+//    @Column(name = "AGEN_ID_ATENDENTE")
+//    public Integer getAgenIdAtendente() {
+//        return this.agenIdAtendente;
+//    }
 
-	public void setAgenIdAtendente(Integer agenIdAtendente) {
-		this.agenIdAtendente = agenIdAtendente;
-	}
+//    public void setAgenIdAtendente(Integer agenIdAtendente) {
+//        this.agenIdAtendente = agenIdAtendente;
+//    }
 
-	@Temporal(TemporalType.TIME)
-	@Column(name = "AGEN_DT_ESPERA", length = 8)
-	public Date getAgenDtEspera() {
-		return this.agenDtEspera;
-	}
+    @Temporal(TemporalType.TIME)
+    @Column(name = "AGEN_DT_ESPERA", length = 8)
+    public Date getAgenDtEspera() {
+        return this.agenDtEspera;
+    }
 
-	public void setAgenDtEspera(Date agenDtEspera) {
-		this.agenDtEspera = agenDtEspera;
-	}
+    public void setAgenDtEspera(Date agenDtEspera) {
+        this.agenDtEspera = agenDtEspera;
+    }
 
-	@Column(name = "AGEN_ID_MEDICO")
-	public Integer getAgenIdMedico() {
-		return this.agenIdMedico;
-	}
+//    @Column(name = "AGEN_ID_MEDICO")
+//    public Integer getAgenIdMedico() {
+//        return this.agenIdMedico;
+//    }
 
-	public void setAgenIdMedico(Integer agenIdMedico) {
-		this.agenIdMedico = agenIdMedico;
-	}
+//    public void setAgenIdMedico(Integer agenIdMedico) {
+//        this.agenIdMedico = agenIdMedico;
+//    }
 
 }
