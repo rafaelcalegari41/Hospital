@@ -10,28 +10,28 @@ import javax.persistence.Table;
 public class PlanoDeSaude implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int pessoaPessIdPessoa;
+	private Pessoa idPessoa;
 	private String pldsNrCnpj;
 	private String pldsNrFax;
 
 	public PlanoDeSaude() {
 	}
 
-	public PlanoDeSaude(int pessoaPessIdPessoa, String pldsNrCnpj,
+	public PlanoDeSaude(Pessoa idPessoa, String pldsNrCnpj,
 			String pldsNrFax) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
+		this.idPessoa = idPessoa;
 		this.pldsNrCnpj = pldsNrCnpj;
 		this.pldsNrFax = pldsNrFax;
 	}
 
 	@Id
-	@Column(name = "PESSOA_PESS_ID_PESSOA", unique = true, nullable = false)
-	public int getPessoaPessIdPessoa() {
-		return this.pessoaPessIdPessoa;
+	@Column(name = "PESS_ID_PESSOA", unique = true, nullable = false)
+	public Pessoa getIdPessoa() {
+		return this.idPessoa;
 	}
 
-	public void setPessoaPessIdPessoa(int pessoaPessIdPessoa) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
+	public void setIdPessoa(Pessoa idPessoa) {
+		this.idPessoa = idPessoa;
 	}
 
 	@Column(name = "PLDS_NR_CNPJ", nullable = false, length = 100)

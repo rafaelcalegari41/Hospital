@@ -16,55 +16,55 @@ import javax.persistence.TemporalType;
 public class Paciente implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int pessoaPessIdPessoa;
-	private int tipoPlanoSaudeTipsIdTipo;
-	private int paciIdPlanoSaude;
+	private Pessoa pessoa;
+	private TipoPlanoSaude idTipo;
+	private PlanoDeSaude idPlanoSaude;
 	private Date paciDtCadastro;
 
 	public Paciente() {
 	}
 
-	public Paciente(int pessoaPessIdPessoa, int tipoPlanoSaudeTipsIdTipo,
-			int paciIdPlanoSaude) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
-		this.tipoPlanoSaudeTipsIdTipo = tipoPlanoSaudeTipsIdTipo;
-		this.paciIdPlanoSaude = paciIdPlanoSaude;
+	public Paciente(Pessoa pessoa, TipoPlanoSaude idTipo,
+			PlanoDeSaude idPlanoSaude) {
+		this.pessoa = pessoa;
+		this.idTipo = idTipo;
+		this.idPlanoSaude = idPlanoSaude;
 	}
 
-	public Paciente(int pessoaPessIdPessoa, int tipoPlanoSaudeTipsIdTipo,
-			int paciIdPlanoSaude, Date paciDtCadastro) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
-		this.tipoPlanoSaudeTipsIdTipo = tipoPlanoSaudeTipsIdTipo;
-		this.paciIdPlanoSaude = paciIdPlanoSaude;
+	public Paciente(Pessoa pessoa, TipoPlanoSaude idTipo,
+			PlanoDeSaude idPlanoSaude, Date paciDtCadastro) {
+		this.pessoa = pessoa;
+		this.idTipo = idTipo;
+		this.idPlanoSaude = idPlanoSaude;
 		this.paciDtCadastro = paciDtCadastro;
 	}
 
 	@Id
-	@Column(name = "PESSOA_PESS_ID_PESSOA", unique = true, nullable = false)
-	public int getPessoaPessIdPessoa() {
-		return this.pessoaPessIdPessoa;
+	@Column(name = "PESS_ID_PESSOA", unique = true, nullable = false)
+	public Pessoa getPessoa() {
+		return this.pessoa;
 	}
 
-	public void setPessoaPessIdPessoa(int pessoaPessIdPessoa) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
+	public void setIdPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
-	@Column(name = "TIPO_PLANO_SAUDE_TIPS_ID_TIPO", nullable = false)
-	public int getTipoPlanoSaudeTipsIdTipo() {
-		return this.tipoPlanoSaudeTipsIdTipo;
+	@Column(name = "TIPS_ID_TIPO", nullable = false)
+	public TipoPlanoSaude getIdTipo() {
+		return this.idTipo;
 	}
 
-	public void setTipoPlanoSaudeTipsIdTipo(int tipoPlanoSaudeTipsIdTipo) {
-		this.tipoPlanoSaudeTipsIdTipo = tipoPlanoSaudeTipsIdTipo;
+	public void setIdTipo(TipoPlanoSaude idTipo) {
+		this.idTipo = idTipo;
 	}
 
-	@Column(name = "PACI_ID_PLANO_SAUDE", nullable = false)
-	public int getPaciIdPlanoSaude() {
-		return this.paciIdPlanoSaude;
+	@Column(name = "PACI_ID_PLANO", nullable = false)
+	public PlanoDeSaude getIdPlanoSaude() {
+		return this.idPlanoSaude;
 	}
 
-	public void setPaciIdPlanoSaude(int paciIdPlanoSaude) {
-		this.paciIdPlanoSaude = paciIdPlanoSaude;
+	public void setIdPlanoSaude(PlanoDeSaude idPlanoSaude) {
+		this.idPlanoSaude = idPlanoSaude;
 	}
 
 	@Temporal(TemporalType.DATE)

@@ -12,9 +12,6 @@ import javax.persistence.Table;
 @Table(name = "tipo_acesso", catalog = "hospital")
 public class TipoAcesso implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Integer tiacIdTipo;
 	private String tiacNmTipo;

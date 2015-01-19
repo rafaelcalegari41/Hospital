@@ -10,42 +10,42 @@ import javax.persistence.Table;
 public class Usuario implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int pessoaPessIdPessoa;
-	private int tipoAcessoTiacIdTipo;
+	private Pessoa idPessoa;
+	private TipoAcesso idTipoAceso;
 	private String usuaTxSenha;
 
 	public Usuario() {
 	}
 
-	public Usuario(int pessoaPessIdPessoa, int tipoAcessoTiacIdTipo) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
-		this.tipoAcessoTiacIdTipo = tipoAcessoTiacIdTipo;
+	public Usuario(Pessoa idPessoa, TipoAcesso idTipoAceso) {
+		this.idPessoa = idPessoa;
+		this.idTipoAceso = idTipoAceso;
 	}
 
-	public Usuario(int pessoaPessIdPessoa, int tipoAcessoTiacIdTipo,
+	public Usuario(Pessoa idPessoa, TipoAcesso idTipoAceso,
 			String usuaTxSenha) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
-		this.tipoAcessoTiacIdTipo = tipoAcessoTiacIdTipo;
+		this.idPessoa = idPessoa;
+		this.idTipoAceso = idTipoAceso;
 		this.usuaTxSenha = usuaTxSenha;
 	}
 
 	@Id
-	@Column(name = "PESSOA_PESS_ID_PESSOA", unique = true, nullable = false)
-	public int getPessoaPessIdPessoa() {
-		return this.pessoaPessIdPessoa;
+	@Column(name = "PESS_ID_PESSOA", unique = true, nullable = false)
+	public Pessoa getIdPessoa() {
+		return this.idPessoa;
 	}
 
-	public void setPessoaPessIdPessoa(int pessoaPessIdPessoa) {
-		this.pessoaPessIdPessoa = pessoaPessIdPessoa;
+	public void setIdPessoa(Pessoa idPessoa) {
+		this.idPessoa = idPessoa;
 	}
 
-	@Column(name = "TIPO_ACESSO_TIAC_ID_TIPO", nullable = false)
-	public int getTipoAcessoTiacIdTipo() {
-		return this.tipoAcessoTiacIdTipo;
+	@Column(name = "TIAC_ID_TIPO", nullable = false)
+	public TipoAcesso getIdTipoAcesso() {
+		return this.idTipoAceso;
 	}
 
-	public void setTipoAcessoTiacIdTipo(int tipoAcessoTiacIdTipo) {
-		this.tipoAcessoTiacIdTipo = tipoAcessoTiacIdTipo;
+	public void setTipoAcessoTiacIdTipo(TipoAcesso idTipoAceso) {
+		this.idTipoAceso = idTipoAceso;
 	}
 
 	@Column(name = "USUA_TX_SENHA", length = 50)

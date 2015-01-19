@@ -25,22 +25,21 @@ public class Medico implements java.io.Serializable {
 	}
 
 	@Id
-	@Column(name = "PESSOA_PESS_ID_PESSOA", unique = true, nullable = false)
-	public Pessoa getPessoaPessIdPessoa() {
+	@Column(name = "PESS_ID_PESSOA", unique = true, nullable = false)
+	public Pessoa getPessoa() {
 		return this.pessoa;
 	}
 
-	public void setPessoaPessIdPessoa(Pessoa pessoa) {
+	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
 
-	@Column(name = "ESPECIALIDADE_ESPE_ID_ESPECIALIDADE", nullable = false)
-	public Especialidade getEspecialidadeEspeIdEspecialidade() {
+	@Column(name = "ESPE_ID_ESPECIALIDADE", nullable = false)
+	public Especialidade getEspecialidade() {
 		return this.especialidade;
 	}
 
-	public void setEspecialidadeEspeIdEspecialidade(
-			Especialidade especialidade) {
+	public void setEspecialidade(Especialidade especialidade) {
 		this.especialidade = especialidade;
 	}
 

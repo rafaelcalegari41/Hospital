@@ -20,7 +20,7 @@ public class Atendente implements java.io.Serializable {
 	}
 
 	@Id
-	@Column(name = "PESSOA_PESS_ID_PESSOA", unique = true, nullable = false)
+	@Column(name = "PESS_ID_PESSOA", unique = true, nullable = false)
 	public Pessoa getPessoa() {
 		return this.pessoa;
 	}

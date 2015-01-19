@@ -16,14 +16,15 @@ public class Pessoa implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer pessIdPessoa;
-	private int municipioMuniIdMunicipio;
+	private Municipio idMunicipio;
+        private TipoAcesso idTipoAcesso;
 	private String pessNmNome;
 	private String pessNrCpf;
 	private String pessTxLogradouro;
 	private String pessNrNumero;
 	private String pessTxCep;
 	private String pessTxBairro;
-	private int pessTxComplemento;
+	private String pessTxComplemento;
 	private String pessTxEmail;
 	private String pessNrTelefone;
 	private String pessNrCelular;
@@ -31,16 +32,17 @@ public class Pessoa implements java.io.Serializable {
 	public Pessoa() {
 	}
 
-	public Pessoa(int municipioMuniIdMunicipio, int pessTxComplemento) {
-		this.municipioMuniIdMunicipio = municipioMuniIdMunicipio;
+	public Pessoa(Municipio idMunicipio, String pessTxComplemento) {
+		this.idMunicipio = idMunicipio;
 		this.pessTxComplemento = pessTxComplemento;
 	}
 
-	public Pessoa(int municipioMuniIdMunicipio, String pessNmNome,
+	public Pessoa(Municipio idMunicipio, TipoAcesso idTipoAcesso, String pessNmNome,
 			String pessNrCpf, String pessTxLogradouro, String pessNrNumero,
-			String pessTxCep, String pessTxBairro, int pessTxComplemento,
+			String pessTxCep, String pessTxBairro, String pessTxComplemento,
 			String pessTxEmail, String pessNrTelefone, String pessNrCelular) {
-		this.municipioMuniIdMunicipio = municipioMuniIdMunicipio;
+		this.idMunicipio = idMunicipio;
+                this.idTipoAcesso = idTipoAcesso;
 		this.pessNmNome = pessNmNome;
 		this.pessNrCpf = pessNrCpf;
 		this.pessTxLogradouro = pessTxLogradouro;
@@ -64,14 +66,23 @@ public class Pessoa implements java.io.Serializable {
 		this.pessIdPessoa = pessIdPessoa;
 	}
 
-	@Column(name = "MUNICIPIO_MUNI_ID_MUNICIPIO", nullable = false)
-	public int getMunicipioMuniIdMunicipio() {
-		return this.municipioMuniIdMunicipio;
+	@Column(name = "MUNI_ID_MUNICIPIO", nullable = false)
+	public Municipio getIdMunicipio() {
+		return this.idMunicipio;
 	}
 
-	public void setMunicipioMuniIdMunicipio(int municipioMuniIdMunicipio) {
-		this.municipioMuniIdMunicipio = municipioMuniIdMunicipio;
+	public void setIdMunicipio(Municipio idMunicipio) {
+		this.idMunicipio = idMunicipio;
 	}
+        
+        @Column(name = "TIAC_ID_TIPO", nullable = false)
+        public TipoAcesso getIdTipoAcesso(){
+            return this.idTipoAcesso;
+        }
+        
+        public void setIdTipoAcesso(TipoAcesso idTipoAcesso){
+            this.idTipoAcesso = idTipoAcesso;
+        }
 
 	@Column(name = "PESS_NM_NOME", length = 100)
 	public String getPessNmNome() {
@@ -128,11 +139,11 @@ public class Pessoa implements java.io.Serializable {
 	}
 
 	@Column(name = "PESS_TX_COMPLEMENTO", nullable = false)
-	public int getPessTxComplemento() {
+	public String getPessTxComplemento() {
 		return this.pessTxComplemento;
 	}
 
-	public void setPessTxComplemento(int pessTxComplemento) {
+	public void setPessTxComplemento(String pessTxComplemento) {
 		this.pessTxComplemento = pessTxComplemento;
 	}
 

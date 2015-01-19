@@ -1,3 +1,4 @@
+
 package br.com.hospital.pojo;
 
 import static javax.persistence.GenerationType.IDENTITY;
