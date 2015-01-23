@@ -25,7 +25,7 @@ public class Medico implements java.io.Serializable {
 	}
 
 	@Id
-	@Column(name = "PESS_ID_PESSOA", unique = true, nullable = false)
+	@Column(name = "MEDI_ID_PESSOA", unique = true, nullable = false)
 	public Pessoa getPessoa() {
 		return this.pessoa;
 	}

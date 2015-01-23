@@ -30,7 +30,7 @@ public class Usuario implements java.io.Serializable {
 	}
 
 	@Id
-	@Column(name = "PESS_ID_PESSOA", unique = true, nullable = false)
+	@Column(name = "USUA_ID_PESSOA", unique = true, nullable = false)
 	public Pessoa getIdPessoa() {
 		return this.idPessoa;
 	}
