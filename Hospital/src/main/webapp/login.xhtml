@@ -1,26 +1,53 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
-	<head>
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
 		<title>Login</title>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	</head>
-	<body>
+	 </h:head>   
+    <h:body>
 		<h2>Login</h2>
-		<table>
-			<tr>
-				<td>Usuário: </td>
-				<td><input type="text"/></td>	
-			</tr>
-			<tr>
-				<td>Senha: </td>
-				<td><input type="password"/></td>
-			</tr>
-			<tr>
-				<td><input type="button" name="Salvar" value="Entrar"/></td>
-			</tr>
-		</table>
-	</body>
+		
+		<h:form
+			id="loginForm"
+			prependId="false">
+			<label for="j_username"><h:outputText value="Usuário: " /><br />
+			</label>
+			<h:inputText
+				id="j_username"
+				required="true">
+			</h:inputText>
+ 
+			<br />
+			<br />
+			<label for="j_password"><h:outputText value="Senha: " /><br />
+			</label>
+			<h:inputSecret
+				id="j_password"
+				required="true">
+			</h:inputSecret>
+ 
+			<br />
+			<br />
+			<label for="_spring_security_remember_me"> <h:outputText
+				value="Lembrar" /> </label>
+			<h:selectBooleanCheckbox
+				id="_spring_security_remember_me" />
+			<br />
+ 
+			<h:commandButton
+				type="submit"
+				id="login"
+				action="#{loginMB.login}"
+				value="Login" />
+ 
+		</h:form>
+		
+		
+	 </h:body>
 </html>

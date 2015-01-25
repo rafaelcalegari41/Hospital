@@ -23,10 +23,10 @@
 	<authentication-manager>
 		<authentication-provider>
 		    <jdbc-user-service data-source-ref="dataSource"				
-				users-by-username-query="select email, senha, 'true' as enabled from usuario where email=?"
-		    	authorities-by-username-query="select u.email, level.descricao from usuario u, 
-		    	                                      autorizacao level
-		      									where u.id_usuario_sistema = level.id_usuario_sistema and u.email = ? "/>		
+				users-by-username-query="select usuario.USUA_TX_SENHA,  'true' as enabled from usuario where usuario.USUA_TX_SENHA = ?"
+		    	authorities-by-username-query="select usuario.USUA_TX_SENHA, tipo.tiac_nm_tipo from usuario, 
+		    	                                      tipo_acesso tipo
+		      									where usuario.usua_id_pessoa = tipo.tiac_id_tipo and usuario.USUA_TX_SENHA = ? "/>		
 		</authentication-provider>
 	</authentication-manager>
            
