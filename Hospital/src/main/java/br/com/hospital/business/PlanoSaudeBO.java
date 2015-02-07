@@ -2,28 +2,28 @@ package br.com.hospital.business;
 
 import java.util.List;
 
-import br.com.hospital.model.PessoaDAO;
-import br.com.hospital.pojo.Pessoa;
+import br.com.hospital.model.PlanoSaudeDAO;
+import br.com.hospital.pojo.PlanoDeSaude;
 
 public class PlanoSaudeBO {
 	
-	private PessoaDAO dao = new PessoaDAO();
+	private PlanoSaudeDAO dao = new PlanoSaudeDAO();
 		
-	public boolean salvar(Pessoa pessoa){
-		System.out.println(pessoa.getPessNmNome());
+	public boolean salvar(PlanoDeSaude pessoa){
+		
 		
 		return dao.save(pessoa);
 	}
 	
-	public boolean atualizar(Pessoa pessoa){
+	public boolean atualizar(PlanoDeSaude pessoa){
 		return dao.update(pessoa);
 	}
 	
-	public boolean deletar(Pessoa pessoa){
+	public boolean deletar(PlanoDeSaude pessoa){
 		return dao.delete(pessoa);
 	}
 	
-	public List<Pessoa> listar(){
+	public List<PlanoDeSaude> listar(){
 		return dao.findAll();
 	}
 

@@ -117,6 +117,7 @@ public class GenericDAO<T, ID extends Serializable> {
 			list = query.list();
 			transaction.commit();
 		} catch (Exception erro) {
+                        System.out.println(erro);
 			transaction.rollback();
 		} finally {			
 			session.close();

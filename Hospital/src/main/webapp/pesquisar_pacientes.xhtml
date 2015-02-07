@@ -66,20 +66,20 @@
                         <div class="row">
                             <div class="col-md-12">                            
 	                            <h:dataTable value="#{pacienteMB.pacientes}" var="paciente"
-					    			styleClass="table table-bordered table-striped">
-					    			<h:column>
-					    				<f:facet name="header">
-								            <h:outputText value="Nome" />
-								        </f:facet>				    			
-					    				#{paciente.pessNmNome}
-					    			</h:column>
-					    			<h:column>
-					    				<f:facet name="header">
-								            <h:outputText value="CPF" />
-								        </f:facet>				    			
-					    				#{paciente.pessNrCpf}
-					    			</h:column>
-					    		</h:dataTable>
+                                            styleClass="table table-bordered table-striped">
+                                            <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Nome" />
+                                                    </f:facet>				    			
+                                                    #{paciente.pessNmNome}
+                                            </h:column>
+                                            <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="CPF" />
+                                                    </f:facet>				    			
+                                                    #{paciente.pessNrCpf}
+                                            </h:column>
+                                    </h:dataTable>
                             </div>
                         </div>
                         <br />

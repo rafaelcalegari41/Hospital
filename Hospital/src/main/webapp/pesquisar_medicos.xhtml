@@ -65,24 +65,21 @@
                         <br />
                         <div class="row">
                             <div class="col-md-12">
-                                <table class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Nome</th>
-                                            <th>E-mail</th>
-                                            <th>Editar</th>
-                                            <th>Excluir</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>John Carter</td>
-                                            <td>johncarter@mail.com</td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <h:dataTable value="#{medicoMB.medicos}" var="medico"
+                                        styleClass="table table-bordered table-striped">
+                                        <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Nome" />
+                                                </f:facet>				    			
+                                                #{medico.pessoa.pessNmNome}
+                                        </h:column>
+                                        <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="CPF" />
+                                                </f:facet>				    			
+                                                #{medico.pessoa.pessNrCpf}
+                                        </h:column>
+                                </h:dataTable>
                             </div>
                         </div>
                         <br />

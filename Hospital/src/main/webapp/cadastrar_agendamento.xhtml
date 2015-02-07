@@ -55,7 +55,7 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <label for="nome">Nome</label>
-                                <h:inputText value="#{pacienteMB.pessoa.pessNrCpf}"
+                                <h:inputText value="#{agendamentoMB.pessoa.pessNmNome}"
 									styleClass="form-control" required="true"
 									requiredMessage="Campo Nome é obrigatório!" />
                               
@@ -63,13 +63,16 @@
 
                             <div class="col-md-4">
                                 <label for="cnpj">CPF</label>
-                                <input type="text" class="form-control" id="cpf" required = 'true'/>
+                                 <h:inputText value="#{agendamentoMB.pessoa.pessNrCpf}"
+                                            styleClass="form-control" required="true"
+                                            requiredMessage="Campo CPF é obrigatório!" />
+                               
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <label>Anamnese</label><br />
-                                <h:inputTextarea value="#{pacienteMB.agendamento.agenTxAnamnese}"
+                                <h:inputTextarea value="#{agendamentoMB.agendamento.agenTxAnamnese}"
 									styleClass="form-control" required="true"
 									requiredMessage="Campo Nome é obrigatório!" />
                             </div>
@@ -77,45 +80,30 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="estado_paciente">Estado do Paciente</label>
-                                <h:selectOneMenu value="#{agendamentoMB.idPlanoSaude}" styleClass="selectpicker">
-									<f:selectItem itemValue="0" itemLabel="Selecione" />
-								   	<f:selectItem itemValue="1" itemLabel="Estável" />
-								   	<f:selectItem itemValue="2" itemLabel="Instável" />	   							
-								</h:selectOneMenu>	
+                                <h:selectOneMenu value="#{agendamentoMB.estadoPaciente.espaIdEstado}" styleClass="selectpicker">
+                                        <f:selectItem itemValue="0" itemLabel="Selecione" />
+                                        <f:selectItem itemValue="1" itemLabel="Estável" />
+                                        <f:selectItem itemValue="2" itemLabel="Instável" />	   							
+                                </h:selectOneMenu>	
                             </div>
                             <div class="col-md-4">
                                 <label for="situacao">Situação</label>                                
-                                 <h:selectOneMenu value="#{agendamentoMB.idPlanoSaude}" styleClass="selectpicker">
-									<f:selectItem itemValue="0" itemLabel="Selecione" />
-								   	<f:selectItem itemValue="1" itemLabel="Atendido" />
-								   	<f:selectItem itemValue="2" itemLabel="Em espera" />	   							
-								</h:selectOneMenu>	
+                                <h:selectOneMenu value="#{agendamentoMB.situacao.situIdSituacao}" styleClass="selectpicker">
+                                        <f:selectItem itemValue="0" itemLabel="Selecione" />
+                                        <f:selectItem itemValue="1" itemLabel="Atendido" />
+                                        <f:selectItem itemValue="2" itemLabel="Em espera" />	   							
+                                </h:selectOneMenu>	
                                
                             </div>
-                            <div class="col-md-4">
-                                <label for="bairro">Data/Hora do Atendimento</label>
-                                <input type="text" class="form-control" id="data_atendimento" required='true'/>
-                            </div>
+                           
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
-                                <label for="situacao">Médico</label>
-                                <select class="selectpicker" id="medico">
-                                    <option>Fulano</option>
-                                    <option>Ciclano</option>
-                                </select>
-                            </div>
                             <div class="col-md-8">
                                 <label for="medico">Atendente</label>
                                 <input type="text" class="form-control" id="atendente"/>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="bairro">Data/Hora do Atendimento</label>
-                                <input type="text" class="form-control" id="data_atendimento" required = 'true'/>
-                            </div>
-                        </div>
+                        
 
                         <div class="row">
                             <div class="col-md-12">

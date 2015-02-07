@@ -49,101 +49,108 @@
                     <div class="logo-expoente"></div>
                     <div class="titulo-menu">CADASTRAR MÉDICO</div>
                 </header>
-                <div class="conteudo">
+               <div class="conteudo">
                     <form role="form">
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome" required = 'true'/>
+                               <h:inputText value="#{medicoMB.pessoa.pessNmNome}"
+                                             styleClass="form-control" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="cnpj">CPF</label>
-                                <input type="text" class="form-control" id="cpf" required = 'true'/>
+                                <h:inputText value="#{medicoMB.pessoa.pessNrCpf}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo CPF obrigatÃ³rio" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-8">
                                 <label for="logradouro">Logradouro</label>
-                                <input type="text" class="form-control" id="logradouro" required = 'true'/>
+                                <h:inputText value="#{medicoMB.pessoa.pessTxLogradouro}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo logradouro obrigatÃ³rio" />
                             </div>
                             <div class="col-md-4">
                                 <label for="numero">Número</label>
-                                <input type="text" class="form-control" id="numero" required = 'true'/>
+                                 <h:inputText value="#{medicoMB.pessoa.pessNrNumero}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo nÃºmero obrigatÃ³rio" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-8">
                                 <label for="bairro">Bairro</label>
-                                <input type="text" class="form-control" id="bairo" required = 'true'/>
+                                 <h:inputText value="#{medicoMB.pessoa.pessTxBairro}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo bairro obrigatÃ³rio" />
                             </div>
                             <div class="col-md-4">
                                 <label for="cep">CEP</label>
-                                <input type="text" class="form-control" id="cep" required = 'true'/>
+                               <h:inputText value="#{medicoMB.pessoa.pessTxCep}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo CEP obrigatÃ³rio" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="uf">UF</label>
-                                <select class="selectpicker" id="uf">
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                </select>
+                                <h:selectOneMenu id="siglauf" required="true"
+                                                 value="#{medicoMB.unidadeFederativa.unfeIdUnidade}" styleClass="selectpicker">
+                                    <f:selectItems value="#{medicoMB.comboUf}"
+                                                   itemValue="#{medicoMB.unidadeFederativa.unfeIdUnidade}"/>
+                                    <f:ajax execute="@this" event="change" render="cidade"
+                                            listener="#{medicoMB.listarCidade}"/>                       
+                                </h:selectOneMenu>
                             </div>
                             <div class="col-md-4">
                                 <label for="cidade">Cidade</label>
-                                <select class="selectpicker" id="cidade">
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                </select>
+                                <h:selectOneMenu id="cidade" styleClass="selectpicker"
+                                                 value="#{medicoMB.municipio.muniIdMunicipio}">
+                                    <f:selectItems value="#{medicoMB.comboMunicipio}"
+                                                   itemValue="#{medicoMB.municipio.muniIdMunicipio}" />
+                                </h:selectOneMenu>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="tel_fixo">Telefone Fixo</label>
-                                <input type="text" class="form-control" id="tel_fixo" required = 'true'/>
+                                 <h:inputText value="#{medicoMB.pessoa.pessNrTelefone}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo fone fixo obrigatÃ³rio" />
                             </div>
                             <div class="col-md-4">
                                 <label for="tel_celular">Telefone Celular</label>
-                                <input type="text" class="form-control" id="tel_celuluar" />
+                                <h:inputText value="#{medicoMB.pessoa.pessNrCelular}"
+                                             styleClass="form-control" required="true"
+                                             requiredMessage="Campo fone celular obrigatÃ³rio" />
                             </div>
                             <div class="col-md-4">
                                 <label for="cidade">Tipo de Usuário</label>
-                                <select class="selectpicker" id="tipo_usuario">
-                                    <option>Médico</option>
-                                </select>
+                                
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="bairro">Senha</label>
-                                <input type="password" class="form-control" id="senha" required = 'true'/>
+                                <label for="senha">Senha</label>
+                                <h:inputText value="#{medicoMB.usuario.usuaTxSenha}"
+                                             styleClass="form-control" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="email">E-mail</label><br />
-                                <input type="email" class="form-control" id="email" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="crm">Número CRM</label><br />
-                                <input type="email" class="form-control" id="crm" />
-                            </div>
-                            <div class="col-md-4">
-                                <label for="especialidade">Especialidade</label>
-                                <select class="selectpicker" id="especialidade">
-                                    <option>Oftalmologista</option>
-                                </select>
+                                 <h:inputText value="#{medicoMB.pessoa.pessTxEmail}"
+                                             styleClass="form-control" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-sm btn-azul right">Salvar</button>
+                                 <h:commandButton value="Salvar" action="#{medicoMB.salvar}"
+                                                 styleClass="btn btn-sm btn-azul right">
+                                </h:commandButton>
                             </div>
                         </div>
                     </form>

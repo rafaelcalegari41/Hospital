@@ -1,29 +1,29 @@
 package br.com.hospital.business;
 
+import br.com.hospital.model.MedicoDAO;
 import java.util.List;
 
-import br.com.hospital.model.PessoaDAO;
-import br.com.hospital.pojo.Pessoa;
+import br.com.hospital.pojo.Medico;
 
 public class MedicoBO {
 	
-	private PessoaDAO dao = new PessoaDAO();
+	private MedicoDAO dao = new MedicoDAO();
 		
-	public boolean salvar(Pessoa pessoa){
-		System.out.println(pessoa.getPessNmNome());
+	public boolean salvar(Medico pessoa){
+		
 		
 		return dao.save(pessoa);
 	}
 	
-	public boolean atualizar(Pessoa pessoa){
+	public boolean atualizar(Medico pessoa){
 		return dao.update(pessoa);
 	}
 	
-	public boolean deletar(Pessoa pessoa){
+	public boolean deletar(Medico pessoa){
 		return dao.delete(pessoa);
 	}
 	
-	public List<Pessoa> listar(){
+	public List<Medico> listar(){
 		return dao.findAll();
 	}
 

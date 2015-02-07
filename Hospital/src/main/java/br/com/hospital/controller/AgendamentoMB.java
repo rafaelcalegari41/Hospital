@@ -8,7 +8,10 @@ import javax.faces.bean.RequestScoped;
 
 import br.com.hospital.business.AgendamentoBO;
 import br.com.hospital.pojo.Agendamento;
+import br.com.hospital.pojo.EstadoPaciente;
 import br.com.hospital.pojo.Pessoa;
+import br.com.hospital.pojo.PlanoDeSaude;
+import br.com.hospital.pojo.Situacao;
 
 
 @ManagedBean
@@ -17,6 +20,9 @@ public class AgendamentoMB {
 	
 	private AgendamentoBO agendamentoBO;
 	private Agendamento agendamento;
+        private PlanoDeSaude planoSaude;
+        private EstadoPaciente estadoPaciente;
+        private Situacao situacao;
 	private Pessoa pessoa;
 	
 	@PostConstruct
@@ -58,4 +64,42 @@ public class AgendamentoMB {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
+
+    public PlanoDeSaude getPlanoSaude() {
+        return planoSaude;
+    }
+
+    public void setPlanoSaude(PlanoDeSaude planoSaude) {
+        this.planoSaude = planoSaude;
+    }
+
+    public AgendamentoBO getAgendamentoBO() {
+        return agendamentoBO;
+    }
+
+    public void setAgendamentoBO(AgendamentoBO agendamentoBO) {
+        this.agendamentoBO = agendamentoBO;
+    }
+
+    public Situacao getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(Situacao situacao) {
+        this.situacao = situacao;
+    }
+
+    public EstadoPaciente getEstadoPaciente() {
+        return estadoPaciente;
+    }
+
+    public void setEstadoPaciente(EstadoPaciente estadoPaciente) {
+        this.estadoPaciente = estadoPaciente;
+    }
+    
+    
+    
+    
+        
+        
 }
