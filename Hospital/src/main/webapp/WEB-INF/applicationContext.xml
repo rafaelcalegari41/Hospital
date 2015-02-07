@@ -7,7 +7,7 @@
            http://www.springframework.org/schema/security/spring-security-3.2.xsd">
            
 	<http auto-config="true" access-denied-page="/403.xhtml">	
-	    <intercept-url pattern="/index.xhtml" access="ROLE_ADMINISTRADORES" />    
+<!--	    <intercept-url pattern="/index.xhtml" access="ROLE_ADMINISTRADORES" />    -->
 		<form-login login-page="/login.xhtml" authentication-failure-url="/login.xhtml"/>
 		<logout logout-success-url="/login.xhtml" />
 	</http>

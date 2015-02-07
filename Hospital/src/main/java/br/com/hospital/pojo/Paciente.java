@@ -12,7 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "paciente", catalog = "hospital")
+@Table(name = "paciente")
 public class Paciente implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -45,7 +45,7 @@ public class Paciente implements java.io.Serializable {
 		return this.pessoa;
 	}
 
-	public void setIdPessoa(Pessoa pessoa) {
+	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
 

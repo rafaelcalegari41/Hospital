@@ -90,12 +90,15 @@ public class GenericDAO<T, ID extends Serializable> {
 		session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			Criteria criteria = session.createCriteria(object);
-			criteria.add(Restrictions.eq(parametro, valor));
-			list = criteria.list();
+			//Criteria criteria = session.createCriteria(object);
+                        Query query = session.createQuery(parametro);
+			//Criteria criteria = session..createCriteria(parametro);
+                        //criteria.add(Restrictions.eq(parametro, valor));
+			list = query.list();
 			session.flush();
 			transaction.commit();
 		} catch (Exception erro) {
+                        System.out.println(erro);
 			transaction.rollback();
 		} finally {
 			session.close();

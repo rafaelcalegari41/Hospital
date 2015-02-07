@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "atendente", catalog = "hospital")
+@Table(name = "atendente")
 public class Atendente implements java.io.Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -26,7 +26,7 @@ public class Atendente implements java.io.Serializable {
         return this.pessoa;
     }
 
-    public void setPessoaPessIdPessoa(Pessoa pessoa) {
+    public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
 

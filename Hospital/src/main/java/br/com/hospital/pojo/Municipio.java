@@ -9,10 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "municipio", catalog = "hospital")
+@Table(name = "municipio")
 public class Municipio implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1L;
+	
 	private Integer muniIdMunicipio;
 	private UnidadeFederativa idUnidade;
 	private String muniNmMunicipio;

@@ -6,12 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuario", catalog = "hospital")
+@Table(name = "usuario")
 public class Usuario implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Pessoa idPessoa;
-	private TipoAcesso idTipoAceso;
+	private TipoAcesso idTipoAcesso;
 	private String usuaTxSenha;
 
 	public Usuario() {
@@ -19,13 +19,13 @@ public class Usuario implements java.io.Serializable {
 
 	public Usuario(Pessoa idPessoa, TipoAcesso idTipoAceso) {
 		this.idPessoa = idPessoa;
-		this.idTipoAceso = idTipoAceso;
+		this.idTipoAcesso = idTipoAceso;
 	}
 
 	public Usuario(Pessoa idPessoa, TipoAcesso idTipoAceso,
 			String usuaTxSenha) {
 		this.idPessoa = idPessoa;
-		this.idTipoAceso = idTipoAceso;
+		this.idTipoAcesso = idTipoAceso;
 		this.usuaTxSenha = usuaTxSenha;
 	}
 
@@ -41,11 +41,11 @@ public class Usuario implements java.io.Serializable {
 
 	@Column(name = "TIAC_ID_TIPO", nullable = false)
 	public TipoAcesso getIdTipoAcesso() {
-		return this.idTipoAceso;
+		return this.idTipoAcesso;
 	}
 
-	public void setTipoAcessoTiacIdTipo(TipoAcesso idTipoAceso) {
-		this.idTipoAceso = idTipoAceso;
+	public void setIdTipoAcesso(TipoAcesso idTipoAcesso) {
+		this.idTipoAcesso = idTipoAcesso;
 	}
 
 	@Column(name = "USUA_TX_SENHA", length = 50)

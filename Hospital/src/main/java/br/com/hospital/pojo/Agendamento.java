@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "agendamento")
@@ -68,7 +66,7 @@ public class Agendamento implements java.io.Serializable {
         return idAgendamento;
     }
 
-    public void setAgenIdAgendamento(Integer idAgendamento) {
+    public void setIdAgendamento(Integer idAgendamento) {
         this.idAgendamento = idAgendamento;
     }
 
