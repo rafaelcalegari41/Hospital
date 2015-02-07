@@ -19,25 +19,22 @@
 	
     <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">	      
         <beans:property  name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <beans:property  name="url" value="jdbc:mysql://localhost/trabalhojava" />
+        <beans:property  name="url" value="jdbc:mysql://localhost/hospital" />
         <beans:property  name="username" value="root" />
-        <beans:property  name="password" value="123456" />
+        <beans:property  name="password" value="nando" />
     </beans:bean>
 		
     <authentication-manager>
         <authentication-provider>
             <jdbc-user-service data-source-ref="dataSource"				
-                               users-by-username-query="select user.USUA_TX_SENHA, pess.PESS_NR_CPF,  
-                                                        'true' as enabled 
-                                                        from usuario user, pessoa pess 
-                                                        where  pess.PESS_NR_CPF = ?" 
-                               authorities-by-username-query="select pessoa.PESS_NR_CPF,
-                                                       acesso.tiac_nm_tipo 
-                                                       from usuario user, PESSOA pessoa, TIPO_ACESSO acesso
-                                                       where acesso.TIAC_ID_TIPO = pessoa.TIAC_ID_TIPO
-                                                       and pessoa.PESS_ID_PESSOA = user.USUA_ID_PESSOA
-                                                       and pessoa.PESS_NR_CPF = ?
-"/>		
+                               users-by-username-query="select PESS_NR_CPF, PESS_TX_SENHA,  
+														'true' as enabled 
+														from pessoa 
+														where PESS_NR_CPF =  ?" 
+                               authorities-by-username-query="select pessoa.PESS_NR_CPF, tipo.tiac_nm_tipo 
+															 from PESSOA as pessoa, TIPO_ACESSO as tipo
+															 where  pessoa.TIAC_ID_TIPO = tipo.TIAC_ID_TIPO
+															 and pessoa.PESS_NR_CPF = ?"/>		
         </authentication-provider>
     </authentication-manager>
            
