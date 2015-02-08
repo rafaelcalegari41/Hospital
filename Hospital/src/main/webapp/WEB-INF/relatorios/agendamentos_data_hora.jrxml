@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="agendamentos_data_hora" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="20294a3a-2eb6-4480-a5da-c29e051e13c8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT dt_agendamento, paciente.nome as paciente, plano_saude.nome as plano, atendente.nome as atendente, situacao
+FROM atendimento
+INNER JOIN paciente ON paciente_id = paciente.id
+INNER JOIN atendente ON atendente_id = atendente.id
+INNER JOIN plano_saude ON plano_saude_id = plano_saude.id
+WHERE dt_agendamento BETWEEN '2014-11-30 10:00' AND '2015-12-02 16:00'
+ORDER BY dt_agendamento DESC]]>
+	</queryString>
+	<field name="dt_agendamento" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="paciente" class="java.lang.String"/>
+	<field name="plano" class="java.lang.String"/>
+	<field name="atendente" class="java.lang.String"/>
+	<field name="situacao" class="java.lang.String">
+		<fieldDescription><![CDATA[E - Em espera A - Em atendimento T - Atendido C - Cancelado]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="41" uuid="695c88a1-93f2-4b76-ab70-8737fb765e52"/>
+				<textElement textAlignment="Center">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Agendamento por Data/Hora]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="146" height="20" uuid="7cee6be5-eeed-4510-b18f-93df9d0d695f"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data do Agendamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="0" width="176" height="20" uuid="6c7945d5-bf78-4812-8ab7-cda9398124a2"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome do Paciente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="0" width="148" height="20" uuid="5afeac11-7a76-4e62-879c-88f5b5b90cc2"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Plano de Saúde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="469" y="0" width="176" height="21" uuid="9dcca2c3-bfeb-4e0b-a0a8-060b413964b5"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atendente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="644" y="0" width="158" height="20" uuid="fd276d42-4968-4053-ab35-c446c3106e7e"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Situação]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="146" y="0" width="176" height="20" uuid="94a78599-c068-43c3-aa16-8f2214f20f8d"/>
+				<textFieldExpression><![CDATA[$F{paciente}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="146" height="20" uuid="96e8139b-d806-4d1f-9cd2-d8c862d6b71a"/>
+				<textFieldExpression><![CDATA[$F{dt_agendamento}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="0" width="149" height="20" uuid="9c6f04ca-ff1c-4f81-bb26-aab09cbcbd5b"/>
+				<textFieldExpression><![CDATA[$F{plano}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="469" y="0" width="176" height="20" uuid="40fa36fd-4eaa-41f1-8259-984201901037"/>
+				<textFieldExpression><![CDATA[$F{atendente}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="644" y="0" width="158" height="20" uuid="289eba02-b6c2-4b4d-8702-0ed57f5013e1"/>
+				<textFieldExpression><![CDATA[$F{situacao}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="27" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

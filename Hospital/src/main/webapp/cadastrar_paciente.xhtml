@@ -49,7 +49,7 @@
                     <div class="titulo-menu">CADASTRAR PACIENTE</div>
                 </header>
                 <div class="conteudo">
-                    <h:form>
+                    <h:form id="formPaciente">
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="nome">Nome</label>
@@ -140,7 +140,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="email">Número do Plano de Saúde</label><br />
-                                <h:inputText value="#{pacienteMB.paciente.planoDeSaude.pessoa.pessIdPessoa}"
+                                <h:inputText value="#{pacienteMB.paciente.paciIdPessoa}"
                                              styleClass="form-control" />
                             </div>
                             <div class="col-md-4">
@@ -154,9 +154,9 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="tipo_plano">Tipo do Plano de Saúde</label> 
-                                <h:selectOneMenu value="#{pacienteMB.paciente.tipoPlanoSaude.tipsIdTipo}" styleClass="selectpicker">
+                                <h:selectOneMenu value="#{pacienteMB.tipoPlanoSaude.tipsIdTipo}" styleClass="selectpicker">
                                     <f:selectItems value="#{pacienteMB.comboTipoPlanoSaude}"
-                                                   itemValue="#{pacienteMB.paciente.tipoPlanoSaude.tipsIdTipo}"/>							
+                                                   itemValue="#{pacienteMB.tipoPlanoSaude.tipsIdTipo}"/>							
                                 </h:selectOneMenu>
                             </div>
                         </div>
@@ -174,9 +174,18 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <h:commandButton value="Salvar" action="#{pacienteMB.salvar}"
+                                <h:commandButton value="Salvar" action="#{relatorioMB.salvar}"
                                                  styleClass="btn btn-sm btn-azul right">
                                 </h:commandButton>
+                                
+                                  <h:commandButton onclick="document.getElementById('formPaciente:geraRelatorio').click();" 
+                                		value="Gerar relatório" 
+                                		styleClass="btn btn-sm btn-azul right" >
+                                </h:commandButton>
+                                
+                                 <h:commandLink id="geraRelatorio" style="display: none;"
+		                  onclick="javascript:window.open('','relatorio','height=580,width=840,top=80, left=250,toolbar=no,scrollbars=no')"
+		                  target="relatorio" action="#{relatorioMB.gerarRelatorioAtendimento}" />
 
                             </div>
                         </div>
