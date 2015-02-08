@@ -9,12 +9,15 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.model.SelectItem;
 
 import br.com.hospital.business.MunicipioBO;
+import br.com.hospital.business.PacienteBO;
 import br.com.hospital.business.PessoaBO;
+import br.com.hospital.business.PlanoSaudeBO;
 import br.com.hospital.business.TipoPlanoSaudeBO;
 import br.com.hospital.business.UnidadeFederativaBO;
 import br.com.hospital.pojo.Municipio;
 import br.com.hospital.pojo.Paciente;
 import br.com.hospital.pojo.Pessoa;
+import br.com.hospital.pojo.PlanoDeSaude;
 import br.com.hospital.pojo.TipoPlanoSaude;
 import br.com.hospital.pojo.UnidadeFederativa;
 
@@ -27,17 +30,22 @@ public class PacienteMB {
     private UnidadeFederativa unidadeFederativa;
     private Municipio municipio;
     private TipoPlanoSaude tipoPlanoSaude;
+    private PlanoDeSaude planoSaude;
     private List<TipoPlanoSaude> tiposPlanoSaude;
+    private List<PlanoDeSaude> planosSaude;
     private List<Municipio> municipios;
     private List<UnidadeFederativa> unidadeFederativas;
-    private List<Pessoa> pacientes;
+    private List<Paciente> pacientes;
     private List<SelectItem> comboTipoPlanoSaude;
     private List<SelectItem> comboUf;
     private List<SelectItem> comboMunicipio;
+    private List<SelectItem> comboPlanoSaude;
 
     private Integer idPlanoSaude;
     private PessoaBO pessoaBO;
+    private PacienteBO pacienteBO;
     private TipoPlanoSaudeBO tipoPlanoSaudeBO;
+    private PlanoSaudeBO planoSaudeBO;
     private UnidadeFederativaBO unidadeFederativaBO;
     private MunicipioBO municipioBO;
 
@@ -48,17 +56,22 @@ public class PacienteMB {
         municipio = new Municipio();
         unidadeFederativa = new UnidadeFederativa();
         tipoPlanoSaude = new TipoPlanoSaude();
+        planoSaude = new PlanoDeSaude();
         pessoaBO = new PessoaBO();
         tipoPlanoSaudeBO = new TipoPlanoSaudeBO();
         unidadeFederativaBO = new UnidadeFederativaBO();
         municipioBO = new MunicipioBO();
+        planoSaudeBO = new PlanoSaudeBO();
+        pacienteBO = new PacienteBO();
         tiposPlanoSaude = new ArrayList();
         unidadeFederativas = new ArrayList();
         municipios = new ArrayList();
+        planosSaude = new ArrayList();
         listarTipoPlanoSaude();
         listarUf();
         listarCidade();
-        pacientes = listar();
+        listarPlanoSaude();
+        pacientes = pacienteBO.listar();
     }
 
     public void salvar(Pessoa pessoa) {
@@ -79,8 +92,21 @@ public class PacienteMB {
         }
     }
 
-    public List<Pessoa> listar() {
-        return pessoaBO.listar();
+   
+    
+    public void listarPlanoSaude() {
+        planosSaude = planoSaudeBO.listar();
+        comboPlanoSaude = new ArrayList<SelectItem>();
+        SelectItem si = new SelectItem();
+        si.setLabel("Selecione");
+        si.setValue("0");
+        comboPlanoSaude.add(si);
+        for (PlanoDeSaude planoSaude : planosSaude) {
+            si = new SelectItem();
+            si.setLabel(planoSaude.getPessoa().getPessNmNome());
+            si.setValue(planoSaude.getPldsIdPessoa());
+            comboPlanoSaude.add(si);
+        }
     }
 
     public void listarTipoPlanoSaude() {
@@ -114,8 +140,7 @@ public class PacienteMB {
     }
 
     public void listarCidade() {
-        System.out.println("Acessou"+ unidadeFederativa.getUnfeIdUnidade());
-        municipios = municipioBO.listarPorNome("from Municipio", unidadeFederativa.getUnfeIdUnidade());
+        municipios = municipioBO.listarPorNome("from Municipio where unidadeFederativa.unfeIdUnidade = "+unidadeFederativa.getUnfeIdUnidade(),"");
         comboMunicipio = new ArrayList<SelectItem>();
         SelectItem si = new SelectItem();
         si.setLabel("Selecione");
@@ -128,9 +153,11 @@ public class PacienteMB {
                 si.setValue(municipio.getMuniIdMunicipio());
                 comboMunicipio.add(si);
             }
-            
         }
-       
+    }
+    
+    public void pesquisar(){
+    	pacientes = pacienteBO.listarPorNome("from Paciente where pessoa.pessNmNome like '%"+pessoa.getPessNmNome()+"%' ");
     }
 
     public Pessoa getPessoa() {
@@ -197,11 +224,11 @@ public class PacienteMB {
         this.idPlanoSaude = idPlanoSaude;
     }
 
-    public List<Pessoa> getPacientes() {
+    public List<Paciente> getPacientes() {
         return pacientes;
     }
 
-    public void setPacienntes(List<Pessoa> pacientes) {
+    public void setPacienntes(List<Paciente> pacientes) {
         this.pacientes = pacientes;
     }
 
@@ -212,5 +239,99 @@ public class PacienteMB {
     public void setUnidadeFederativa(UnidadeFederativa unidadeFederativa) {
         this.unidadeFederativa = unidadeFederativa;
     }
+
+	public TipoPlanoSaude getTipoPlanoSaude() {
+		return tipoPlanoSaude;
+	}
+
+	public void setTipoPlanoSaude(TipoPlanoSaude tipoPlanoSaude) {
+		this.tipoPlanoSaude = tipoPlanoSaude;
+	}
+
+	public PlanoDeSaude getPlanoSaude() {
+		return planoSaude;
+	}
+
+	public void setPlanoSaude(PlanoDeSaude planoSaude) {
+		this.planoSaude = planoSaude;
+	}
+
+	public List<TipoPlanoSaude> getTiposPlanoSaude() {
+		return tiposPlanoSaude;
+	}
+
+	public void setTiposPlanoSaude(List<TipoPlanoSaude> tiposPlanoSaude) {
+		this.tiposPlanoSaude = tiposPlanoSaude;
+	}
+
+	public List<PlanoDeSaude> getPlanosSaude() {
+		return planosSaude;
+	}
+
+	public void setPlanosSaude(List<PlanoDeSaude> planosSaude) {
+		this.planosSaude = planosSaude;
+	}
+
+	public List<UnidadeFederativa> getUnidadeFederativas() {
+		return unidadeFederativas;
+	}
+
+	public void setUnidadeFederativas(List<UnidadeFederativa> unidadeFederativas) {
+		this.unidadeFederativas = unidadeFederativas;
+	}
+
+	public List<SelectItem> getComboPlanoSaude() {
+		return comboPlanoSaude;
+	}
+
+	public void setComboPlanoSaude(List<SelectItem> comboPlanoSaude) {
+		this.comboPlanoSaude = comboPlanoSaude;
+	}
+
+	public PessoaBO getPessoaBO() {
+		return pessoaBO;
+	}
+
+	public void setPessoaBO(PessoaBO pessoaBO) {
+		this.pessoaBO = pessoaBO;
+	}
+
+	public TipoPlanoSaudeBO getTipoPlanoSaudeBO() {
+		return tipoPlanoSaudeBO;
+	}
+
+	public void setTipoPlanoSaudeBO(TipoPlanoSaudeBO tipoPlanoSaudeBO) {
+		this.tipoPlanoSaudeBO = tipoPlanoSaudeBO;
+	}
+
+	public PlanoSaudeBO getPlanoSaudeBO() {
+		return planoSaudeBO;
+	}
+
+	public void setPlanoSaudeBO(PlanoSaudeBO planoSaudeBO) {
+		this.planoSaudeBO = planoSaudeBO;
+	}
+
+	public UnidadeFederativaBO getUnidadeFederativaBO() {
+		return unidadeFederativaBO;
+	}
+
+	public void setUnidadeFederativaBO(UnidadeFederativaBO unidadeFederativaBO) {
+		this.unidadeFederativaBO = unidadeFederativaBO;
+	}
+
+	public MunicipioBO getMunicipioBO() {
+		return municipioBO;
+	}
+
+	public void setMunicipioBO(MunicipioBO municipioBO) {
+		this.municipioBO = municipioBO;
+	}
+
+	public void setPacientes(List<Paciente> pacientes) {
+		this.pacientes = pacientes;
+	}
+    
+    
 
 }

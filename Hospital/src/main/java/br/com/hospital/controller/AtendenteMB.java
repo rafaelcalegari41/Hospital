@@ -1,18 +1,19 @@
 package br.com.hospital.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.model.SelectItem;
+
 import br.com.hospital.business.MunicipioBO;
 import br.com.hospital.business.UnidadeFederativaBO;
 import br.com.hospital.pojo.Municipio;
 import br.com.hospital.pojo.Pessoa;
 import br.com.hospital.pojo.TipoAcesso;
 import br.com.hospital.pojo.UnidadeFederativa;
-import br.com.hospital.pojo.Usuario;
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.model.SelectItem;
 
 
 @ManagedBean
@@ -20,8 +21,7 @@ import javax.faces.model.SelectItem;
 public class AtendenteMB {
     
         private Pessoa pessoa;
-        private TipoAcesso tipoAcesso;
-        private Usuario usuario;
+        private TipoAcesso tipoAcesso;       
         private UnidadeFederativa unidadeFederativa;
         private Municipio municipio;
         private List<Municipio> municipios;
@@ -34,8 +34,7 @@ public class AtendenteMB {
 	@PostConstruct
 	public void inicio(){
             pessoa = new Pessoa();
-            tipoAcesso = new TipoAcesso();
-            usuario = new Usuario();
+            tipoAcesso = new TipoAcesso();            
             municipio = new Municipio();
             unidadeFederativa = new UnidadeFederativa();
             unidadeFederativas = new ArrayList();
@@ -67,7 +66,7 @@ public class AtendenteMB {
 
     public void listarCidade() {
         System.out.println("Acessou"+ unidadeFederativa.getUnfeIdUnidade());
-        municipios = municipioBO.listarPorNome("from Municipio", unidadeFederativa.getUnfeIdUnidade());
+        municipios = municipioBO.listarPorNome("from Municipio", unidadeFederativa.getUnfeIdUnidade().toString());
         comboMunicipio = new ArrayList<SelectItem>();
         SelectItem si = new SelectItem();
         si.setLabel("Selecione");
@@ -83,14 +82,6 @@ public class AtendenteMB {
             
         }
        
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public Pessoa getPessoa() {

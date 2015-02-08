@@ -60,7 +60,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="cnpj">CPF</label>
-                                <h:inputText value="#{agendamentoMB.pessoa.pessNrCpf}"
+                                <h:inputText value="#{pacienteMB.pessoa.pessNrCpf}"
                                              styleClass="form-control" required="true"
                                              requiredMessage="Campo CPF obrigatório" />
                             </div>
@@ -106,8 +106,9 @@
                                 </h:selectOneMenu>
                             </div>
                             <div class="col-md-4">
-                                <label for="cidade">Cidade</label> 
-                                <h:selectOneMenu id="cidade" styleClass="selectpicker"
+                                <label for="cidade">Cidade</label>
+                                 <div style="clear: both"></div>
+                                <h:selectOneMenu id="cidade" 
                                                  value="#{pacienteMB.municipio.muniIdMunicipio}">
                                     <f:selectItems value="#{pacienteMB.comboMunicipio}"
                                                    itemValue="#{pacienteMB.municipio.muniIdMunicipio}" />
@@ -139,22 +140,23 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="email">Número do Plano de Saúde</label><br />
-                                <h:inputText value="#{pacienteMB.paciente.idPlanoSaude.idPessoa.pessIdPessoa}"
+                                <h:inputText value="#{pacienteMB.paciente.planoDeSaude.pessoa.pessIdPessoa}"
                                              styleClass="form-control" />
                             </div>
                             <div class="col-md-4">
                                 <label for="nome_plano">Plano de Saúde</label> 
-                                <h:selectOneMenu value="#{pacienteMB.idPlanoSaude}" styleClass="selectpicker">
-                                    <f:selectItem itemValue="0" itemLabel="Selecione" />
-                                    <f:selectItem itemValue="1" itemLabel="Clinipam" />
-                                    <f:selectItem itemValue="2" itemLabel="Unimed" />	   							
+                                <h:selectOneMenu value="#{pacienteMB.planoSaude.pldsIdPessoa}" styleClass="selectpicker">
+                                	  <f:selectItems value="#{pacienteMB.comboPlanoSaude}"
+                                                   itemValue="#{pacienteMB.planoSaude.pldsIdPessoa}"/>	
+                                
+                                  							
                                 </h:selectOneMenu>	
                             </div>
                             <div class="col-md-4">
                                 <label for="tipo_plano">Tipo do Plano de Saúde</label> 
-                                <h:selectOneMenu value="#{pacienteMB.paciente.idTipo.tipsIdTipo}" styleClass="selectpicker">
+                                <h:selectOneMenu value="#{pacienteMB.paciente.tipoPlanoSaude.tipsIdTipo}" styleClass="selectpicker">
                                     <f:selectItems value="#{pacienteMB.comboTipoPlanoSaude}"
-                                                   itemValue="#{pacienteMB.paciente.idTipo.tipsIdTipo}"/>							
+                                                   itemValue="#{pacienteMB.paciente.tipoPlanoSaude.tipsIdTipo}"/>							
                                 </h:selectOneMenu>
                             </div>
                         </div>

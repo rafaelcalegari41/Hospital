@@ -6,8 +6,8 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">123456</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/trabalhojava</property>
+        <property name="hibernate.connection.password">nando</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/hospital</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         
         <property name="connection.pool_size">1</property>
@@ -27,8 +27,6 @@
          <mapping class="br.com.hospital.pojo.TipoAcesso"></mapping>
          <mapping class="br.com.hospital.pojo.TipoPlanoSaude"></mapping>
          <mapping class="br.com.hospital.pojo.UnidadeFederativa"></mapping>
-         <mapping class="br.com.hospital.pojo.Usuario"></mapping>
-        
     </session-factory>
     
     

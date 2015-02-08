@@ -50,16 +50,18 @@
                     <div class="titulo-menu">LISTAR PACIENTES</div>
                 </header>
                 <div class="conteudo">
-                    <form role="form">
+                    <h:form>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-8">
                                 <label for="autor">Paciente</label>
-                                <input type="text" class="form-control" id="autor"/>
+                                 <h:inputText value="#{pacienteMB.pessoa.pessNmNome}"
+                                             styleClass="form-control"/>                             
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-sm btn-azul right">Pesquisar</button>
+                             <div class="col-md-2" style="margin-top: 22px;">
+                                <h:commandButton value="Pesquisar" action="#{pacienteMB.pesquisar}"
+                                                 styleClass="btn btn-sm btn-azul right">
+                                </h:commandButton>
+                            
                             </div>
                         </div>
                         <br />
@@ -71,19 +73,25 @@
                                                     <f:facet name="header">
                                                         <h:outputText value="Nome" />
                                                     </f:facet>				    			
-                                                    #{paciente.pessNmNome}
+                                                    #{paciente.pessoa.pessNmNome}
                                             </h:column>
                                             <h:column>
                                                     <f:facet name="header">
                                                         <h:outputText value="CPF" />
                                                     </f:facet>				    			
-                                                    #{paciente.pessNrCpf}
+                                                    #{paciente.pessoa.pessNrCpf}
+                                            </h:column>
+                                             <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Tipo plano de saúde" />
+                                                    </f:facet>				    			
+                                                    #{paciente.tipoPlanoSaude.tipsNmNome}
                                             </h:column>
                                     </h:dataTable>
                             </div>
                         </div>
                         <br />
-                    </form>
+                    </h:form>
                 </div>
                 <div style="clear: both"></div>
             </div>

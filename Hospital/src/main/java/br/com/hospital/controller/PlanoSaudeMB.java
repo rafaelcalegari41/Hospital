@@ -1,5 +1,13 @@
 package br.com.hospital.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.model.SelectItem;
+
 import br.com.hospital.business.MunicipioBO;
 import br.com.hospital.business.PessoaBO;
 import br.com.hospital.business.PlanoSaudeBO;
@@ -11,12 +19,6 @@ import br.com.hospital.pojo.Pessoa;
 import br.com.hospital.pojo.PlanoDeSaude;
 import br.com.hospital.pojo.TipoPlanoSaude;
 import br.com.hospital.pojo.UnidadeFederativa;
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.model.SelectItem;
 
 
 @ManagedBean
@@ -119,7 +121,7 @@ public class PlanoSaudeMB {
 
     public void listarCidade() {
         System.out.println("Acessou"+ unidadeFederativa.getUnfeIdUnidade());
-        municipios = municipioBO.listarPorNome("from Municipio", unidadeFederativa.getUnfeIdUnidade());
+        municipios = municipioBO.listarPorNome("from Municipio", unidadeFederativa.getUnfeIdUnidade().toString());
         comboMunicipio = new ArrayList<SelectItem>();
         SelectItem si = new SelectItem();
         si.setLabel("Selecione");
