@@ -95,65 +95,65 @@ public class PacienteMB {
    
     
     public void listarPlanoSaude() {
-        planosSaude = planoSaudeBO.listar();
-        comboPlanoSaude = new ArrayList<SelectItem>();
-        SelectItem si = new SelectItem();
-        si.setLabel("Selecione");
-        si.setValue("0");
-        comboPlanoSaude.add(si);
-        for (PlanoDeSaude planoSaude : planosSaude) {
-            si = new SelectItem();
-            si.setLabel(planoSaude.getPessoa().getPessNmNome());
-            si.setValue(planoSaude.getPldsIdPessoa());
-            comboPlanoSaude.add(si);
-        }
+//        planosSaude = planoSaudeBO.listar();
+//        comboPlanoSaude = new ArrayList<SelectItem>();
+//        SelectItem si = new SelectItem();
+//        si.setLabel("Selecione");
+//        si.setValue("0");
+//        comboPlanoSaude.add(si);
+//        for (PlanoDeSaude planoSaude : planosSaude) {
+//            si = new SelectItem();
+//            si.setLabel(planoSaude.getPessoa().getPessNmNome());
+//            si.setValue(planoSaude.getPldsIdPessoa());
+//            comboPlanoSaude.add(si);
+//        }
     }
 
     public void listarTipoPlanoSaude() {
-        tiposPlanoSaude = tipoPlanoSaudeBO.listar();
-        comboTipoPlanoSaude = new ArrayList<SelectItem>();
-        SelectItem si = new SelectItem();
-        si.setLabel("Selecione");
-        si.setValue("0");
-        comboTipoPlanoSaude.add(si);
-        for (TipoPlanoSaude planos : tiposPlanoSaude) {
-            si = new SelectItem();
-            si.setLabel(planos.getTipsNmNome());
-            si.setValue(planos.getTipsIdTipo());
-            comboTipoPlanoSaude.add(si);
-        }
+//        tiposPlanoSaude = tipoPlanoSaudeBO.listar();
+//        comboTipoPlanoSaude = new ArrayList<SelectItem>();
+//        SelectItem si = new SelectItem();
+//        si.setLabel("Selecione");
+//        si.setValue("0");
+//        comboTipoPlanoSaude.add(si);
+//        for (TipoPlanoSaude planos : tiposPlanoSaude) {
+//            si = new SelectItem();
+//            si.setLabel(planos.getTipsNmNome());
+//            si.setValue(planos.getTipsIdTipo());
+//            comboTipoPlanoSaude.add(si);
+//        }
     }
 
     public void listarUf() {
-        unidadeFederativas = unidadeFederativaBO.listar();
-        comboUf = new ArrayList<SelectItem>();
-        SelectItem si = new SelectItem();
-        si.setLabel("Selecione");
-        si.setValue("0");
-        comboUf.add(si);
-        for (UnidadeFederativa unidades : unidadeFederativas) {
-            si = new SelectItem();
-            si.setLabel(unidades.getUnfeNmUnidade());
-            si.setValue(unidades.getUnfeIdUnidade());
-            comboUf.add(si);
-        }
+//        unidadeFederativas = unidadeFederativaBO.listar();
+//        comboUf = new ArrayList<SelectItem>();
+//        SelectItem si = new SelectItem();
+//        si.setLabel("Selecione");
+//        si.setValue("0");
+//        comboUf.add(si);
+//        for (UnidadeFederativa unidades : unidadeFederativas) {
+//            si = new SelectItem();
+//            si.setLabel(unidades.getUnfeNmUnidade());
+//            si.setValue(unidades.getUnfeIdUnidade());
+//            comboUf.add(si);
+//        }
     }
 
     public void listarCidade() {
-        municipios = municipioBO.listarPorNome("from Municipio where unidadeFederativa.unfeIdUnidade = "+unidadeFederativa.getUnfeIdUnidade(),"");
-        comboMunicipio = new ArrayList<SelectItem>();
-        SelectItem si = new SelectItem();
-        si.setLabel("Selecione");
-        si.setValue("0");
-        comboMunicipio.add(si);
-            if(municipios != null){
-                 for (Municipio municipio : municipios) {
-                si = new SelectItem();
-                si.setLabel(municipio.getMuniNmMunicipio());
-                si.setValue(municipio.getMuniIdMunicipio());
-                comboMunicipio.add(si);
-            }
-        }
+//        municipios = municipioBO.listarPorNome("from Municipio where unidadeFederativa.unfeIdUnidade = "+unidadeFederativa.getUnfeIdUnidade(),"");
+//        comboMunicipio = new ArrayList<SelectItem>();
+//        SelectItem si = new SelectItem();
+//        si.setLabel("Selecione");
+//        si.setValue("0");
+//        comboMunicipio.add(si);
+//            if(municipios != null){
+//                 for (Municipio municipio : municipios) {
+//                si = new SelectItem();
+//                si.setLabel(municipio.getMuniNmMunicipio());
+//                si.setValue(municipio.getMuniIdMunicipio());
+//                comboMunicipio.add(si);
+//            }
+//        }
     }
     
     public void pesquisar(){

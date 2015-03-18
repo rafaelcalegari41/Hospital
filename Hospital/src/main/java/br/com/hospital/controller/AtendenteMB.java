@@ -50,37 +50,37 @@ public class AtendenteMB {
         }
         
         public void listarUf() {
-        unidadeFederativas = unidadeFederativaBO.listar();
-        comboUf = new ArrayList<SelectItem>();
-        SelectItem si = new SelectItem();
-        si.setLabel("Selecione");
-        si.setValue("0");
-        comboUf.add(si);
-        for (UnidadeFederativa unidades : unidadeFederativas) {
-            si = new SelectItem();
-            si.setLabel(unidades.getUnfeNmUnidade());
-            si.setValue(unidades.getUnfeIdUnidade());
-            comboUf.add(si);
-        }
+//        unidadeFederativas = unidadeFederativaBO.listar();
+//        comboUf = new ArrayList<SelectItem>();
+//        SelectItem si = new SelectItem();
+//        si.setLabel("Selecione");
+//        si.setValue("0");
+//        comboUf.add(si);
+//        for (UnidadeFederativa unidades : unidadeFederativas) {
+//            si = new SelectItem();
+//            si.setLabel(unidades.getUnfeNmUnidade());
+//            si.setValue(unidades.getUnfeIdUnidade());
+//            comboUf.add(si);
+//        }
     }
 
     public void listarCidade() {
-        System.out.println("Acessou"+ unidadeFederativa.getUnfeIdUnidade());
-        municipios = municipioBO.listarPorNome("from Municipio", unidadeFederativa.getUnfeIdUnidade().toString());
-        comboMunicipio = new ArrayList<SelectItem>();
-        SelectItem si = new SelectItem();
-        si.setLabel("Selecione");
-        si.setValue("0");
-        comboMunicipio.add(si);
-            if(municipios != null){
-                 for (Municipio municipio : municipios) {
-                si = new SelectItem();
-                si.setLabel(municipio.getMuniNmMunicipio());
-                si.setValue(municipio.getMuniIdMunicipio());
-                comboMunicipio.add(si);
-            }
-            
-        }
+//        System.out.println("Acessou"+ unidadeFederativa.getUnfeIdUnidade());
+//        municipios = municipioBO.listarPorNome("from Municipio", unidadeFederativa.getUnfeIdUnidade().toString());
+//        comboMunicipio = new ArrayList<SelectItem>();
+//        SelectItem si = new SelectItem();
+//        si.setLabel("Selecione");
+//        si.setValue("0");
+//        comboMunicipio.add(si);
+//            if(municipios != null){
+//                 for (Municipio municipio : municipios) {
+//                si = new SelectItem();
+//                si.setLabel(municipio.getMuniNmMunicipio());
+//                si.setValue(municipio.getMuniIdMunicipio());
+//                comboMunicipio.add(si);
+//            }
+//            
+//        }
        
     }
 

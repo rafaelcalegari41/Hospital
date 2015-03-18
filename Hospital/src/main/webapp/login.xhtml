@@ -1,53 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core">
-    
-    <h:head>
-		<title>Login</title>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	 </h:head>   
-    <h:body>
-		<h2>Login</h2>
-		
-		<h:form
-			id="loginForm"
-			prependId="false">
-			<label for="j_username"><h:outputText value="Usuário: " /><br />
-			</label>
-			<h:inputText
-                                
-				id="j_username"
-				required="true">
-			</h:inputText>
- 
-			<br />
-			<br />
-			<label for="j_password"><h:outputText value="Senha: " /><br />
-			</label>
-                        <h:inputSecret id="j_password"
-				required="true">
-			</h:inputSecret>
- 
-			<br />
-			<br />
-			<label for="_spring_security_remember_me"> <h:outputText
-				value="Lembrar" /> </label>
-			<h:selectBooleanCheckbox
-				id="_spring_security_remember_me" />
-			<br />
- 
-			<h:commandButton
-				type="submit"
-				id="login"
-				action="#{loginMB.login}"
-				value="Login" />
- 
-		</h:form>
-		
-		
-	 </h:body>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <head>
+        <title>SUCH ­ Sistema Unificado de Controle Hospitalar</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/bootstrap-select.css" rel="stylesheet"/>
+        <link href="css/datepicker3.css" rel="stylesheet"/>
+        <link href="css/estilo.css" rel="stylesheet"/>
+    </head>   
+    <body>
+        <div class="principal">
+            <div class="lateral">
+                <div class="logo"></div>
+            </div>
+
+            <div class="fundo-cinza-principal">
+                <header>
+                    <div class="logo-expoente"></div>
+                    <div class="titulo-menu">LOGIN</div>
+                </header>
+                <div class="conteudo">
+
+                    <h:form id="loginForm" prependId="false">
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="j_username">Usuário: </label>
+                                <h:inputText
+                                    id="j_username"
+                                    styleClass="form-control" required="true"
+                                    requiredMessage="Campo usuário é obrigatório!">
+                                </h:inputText>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="j_password">Senha: </label>   
+                                <h:inputSecret id="j_password"
+                                               styleClass="form-control" 
+                                               required="true"
+                                               requiredMessage="Campo usuário é obrigatório!">
+                                </h:inputSecret>
+                            </div>
+                        </div>
+
+                        <label for="_spring_security_remember_me"> <h:outputText
+                                value="Lembrar" /> </label>
+                        <h:selectBooleanCheckbox
+                            id="_spring_security_remember_me" />
+                        <br />
+
+                        <h:commandButton
+                            type="submit"
+                            id="login"
+                            action="#{loginMB.login}"
+                            value="Login" />
+
+                    </h:form>
+                </div>
+k                <div style="clear: both"></div>
+            </div>
+        </div>
+
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-select.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/bootstrap-datepicker.pt-BR.js"></script>
+        <script src="js/script.js"></script>
+    </body>
 </html>
